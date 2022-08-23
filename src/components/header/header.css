@@ -1,0 +1,46 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+header::before {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 90%;
+    top: 0;
+    right: 0;
+    background-color: rgb(42, 205, 85);
+    z-index: -1;
+}
+header .hero {
+    width: 60%;
+}
+header h1 {
+    color: rgb(14, 53, 24);
+    font-size: 40px;
+}
+header .total {
+    display: flex;
+    flex-wrap: wrap;
+}
+header .total .box {
+    min-width: 150px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 10px rgba(153, 153, 153, 0.506);
+}
+header .total .box h5 {
+    color: rgb(42, 205, 85);
+}
+@media (max-width: 700px) {
+    header .hero {
+        width: 100%;
+    }
+    header img,
+    header::before {
+        display: none;
+    }
+}
