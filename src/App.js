@@ -1,27 +1,26 @@
-import { useDispatch } from "react-redux";
-import { dataFetch } from "./redux/actions";
-import { useEffect } from "react";
-import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./components/footer/footer";
 
 //Components
-import Header from "./components/header/header";
 import Topbar from "./components/topbar/topbar";
-import OtherStates from "./components/otherStates/otherStates";
+import BlogsContextProvider from "./context/blogsContext";
+
+//Views
+import Home from "./views/home/home";
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    axios.get("https://covidnigeria.herokuapp.com/api")
-    .then(res => dispatch(dataFetch(res.data)))
-  }, [dispatch])
-
   return (
-      <div className="App">
+    <BlogsContextProvider>
+      <BrowserRouter>
         <Topbar />
-        <Header />
-        <OtherStates />
-      </div>
+
+        <Routes>
+          <Route exact path="/" element={<Home />}/>      
+        </Routes>
+
+        <Footer />
+      </BrowserRouter>
+    </BlogsContextProvider>
   );
 }
 

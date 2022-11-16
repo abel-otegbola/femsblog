@@ -1,8 +1,0 @@
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 5%;
-    color: rgb(42, 205, 85);
-    background-color: #fff;
-    box-shadow: 1px 3px 5px rgba(153, 153, 153, 0.293);
-}
