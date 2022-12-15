@@ -6,7 +6,7 @@ module.exports = {
       fontFamily: {
         display: ["Lato", "sans-serif"],
         heading: ["Josefin Sans", "sans-serif"]
-      },
+      }
     },
   },
   plugins: [],

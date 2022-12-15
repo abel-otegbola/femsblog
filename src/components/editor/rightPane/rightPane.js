@@ -1,7 +1,24 @@
 import { useState } from "react"
 
 const RightPane = () => {
-    const [dActive, setDActive] = useState("block")
+    const [style, setStyle] = useState({
+        display: "block",
+        spacing: {
+            margin: 10,
+            padding: 10,
+        },
+        size: {
+            width: "auto",
+            height: "auto",
+        }
+    })
+
+    const handleSelection = (element) => {
+        setStyle({
+            ...style,
+            display: element
+        })
+    }
 
     const displays = ["block", "flex", "inline", "grid"]
     const spacing = ["margin", "padding"]
@@ -19,8 +36,8 @@ const RightPane = () => {
                         return (
                             <p key={index} 
                                 className={`px-2 py-1 border-white-500/50 m-1 text-center cursor-pointer rounded hover:bg-fuchsia-600 flex-1
-                                ${(dActive === element)? "bg-fuchsia-600": "bg-slate-900"}`}
-                                onClick={() => setDActive(element)} 
+                                ${(style.display === element)? "bg-fuchsia-600": "bg-slate-900"}`}
+                                onClick={() => handleSelection(element)} 
                                 id={element} 
 
                             >{element}</p>
@@ -36,8 +53,7 @@ const RightPane = () => {
                         return (
                             <div key={index} className="flex">
                                 <p 
-                                    className={`px-2 py-1 border-white-500/50 m-1 text-center rounded flex-1
-                                    ${(dActive === element)? "bg-fuchsia-600": "bg-slate-900"}`}
+                                    className={`px-2 py-1 border-white-500/50 m-1 text-center rounded flex-1`}
                                     id={element} 
 
                                 >{element}</p>
@@ -55,8 +71,7 @@ const RightPane = () => {
                         return (
                             <div key={index} className="flex">
                                 <p 
-                                    className={`px-2 py-1 border-white-500/50 m-1 text-center rounded flex-1
-                                    ${(dActive === element)? "bg-fuchsia-600": "bg-slate-900"}`}
+                                    className={`px-2 py-1 border-white-500/50 m-1 text-center rounded flex-1`}
                                     id={element} 
 
                                 >{element}</p>
@@ -76,8 +91,7 @@ const RightPane = () => {
                         return (
                             <div key={index} className="flex">
                                 <p 
-                                    className={`px-2 py-1 border-white-500/50 m-1 text-center rounded flex-1
-                                    ${(dActive === element)? "bg-fuchsia-600": "bg-slate-900"}`}
+                                    className={`px-2 py-1 border-white-500/50 m-1 text-center rounded flex-1`}
                                     id={element} 
 
                                 >{element}</p>
@@ -95,8 +109,7 @@ const RightPane = () => {
                         return (
                             <div key={index} className="flex">
                                 <p 
-                                    className={`px-2 py-1 border-white-500/50 m-1 text-center rounded flex-1
-                                    ${(dActive === element)? "bg-fuchsia-600": "bg-slate-900"}`}
+                                    className={`px-2 py-1 border-white-500/50 m-1 text-center rounded flex-1`}
                                     id={element} 
 
                                 >{element}</p>
@@ -114,8 +127,7 @@ const RightPane = () => {
                         return (
                             <div key={index} className="flex">
                                 <p 
-                                    className={`px-2 py-1 border-white-500/50 m-1 text-center rounded flex-1
-                                    ${(dActive === element)? "bg-fuchsia-600": "bg-slate-900"}`}
+                                    className={`px-2 py-1 border-white-500/50 m-1 text-center rounded flex-1`}
                                     id={element} 
 
                                 >{element}</p>

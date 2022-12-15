@@ -1,19 +1,11 @@
-import { useContext } from "react";
-import { BlogsContext } from "../../../context/blogsContext";
-import HeroBlog from "../heroBlog/heroBlog";
+import bg from "../../../img/bg.jpg";
 
 const HeroSection = () => {
-    const blogs = useContext(BlogsContext)
 
     return (
-        <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-1">
-            {
-                blogs.filter(item => item.id<4).map(blog => {
-                    return (
-                        <HeroBlog key={blog.id} blog={blog} />
-                    )
-                })
-            }
+        <div className=" flex items-center justify-center text-white m-2 mt-0 relative h-[200px]">
+            <img src={bg} alt="bg" className="absolute top-0 left-0 w-full rounded h-full object-cover" />
+            <p className="text-5xl relative font-bold p-4 px-6 bg-black/[0.1]">BLOG</p>
         </div>
     )
 }
