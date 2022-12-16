@@ -1,36 +1,43 @@
+import { FiBold, FiImage, FiLink, FiType, FiVideo } from "react-icons/fi";
+import { BsCursorText, BsInputCursor } from "react-icons/bs";
+import { TbRectangle } from "react-icons/tb";
+
 const LeftPane = () => {
     const handleDrag = (e) => {
         e.dataTransfer.setData("Text", e.target.id)
     }
-    const elements = ["box", "heading", "text", "span", "input", "link", "button", "image", "video"]
+    const components = [
+        { id: 1, title: "heading", icon: <FiBold />},
+        { id: 2, title: "text", icon: <FiType />},
+        { id: 3, title: "span", icon: <BsCursorText />},
+        { id: 4, title: "input", icon: <BsInputCursor />},
+        { id: 5, title: "link", icon: <FiLink />},
+        { id: 6, title: "button", icon: <TbRectangle />},
+        { id: 7, title: "image", icon: <FiImage />},
+        { id: 8, title: "video", icon: <FiVideo />},
+    ];
 
     return (
-        <div className="w-2/7 p-4 bg-slate-800 text-white">
-            <p className="p-3">Layouts</p>
-            <div className="grid grid-cols-3 mb-3">
-                <p className="px-3 py-2 border-white-500/50 bg-slate-900 m-1 text-center text-sm cursor-pointer rounded" id="single" draggable="true" onDragStart={(e) => handleDrag(e)} onTouchStart={(e) => handleDrag(e)}>single</p>
-                <p className="px-3 py-2 border-white-500/50 bg-slate-900 m-1 text-center text-sm cursor-pointer rounded" id="double" draggable="true" onDragStart={(e) => handleDrag(e)} onTouchStart={(e) => handleDrag(e)}>double</p>
-                <p className="px-3 py-2 border-white-500/50 bg-slate-900 m-1 text-center text-sm cursor-pointer rounded" id="grid" draggable="true" onDragStart={(e) => handleDrag(e)} onTouchStart={(e) => handleDrag(e)}>grid</p>
-            </div>
-            
-            <p className="p-3">Elements</p>
-            <div className="grid grid-cols-3 mb-3">
+        <div className="w-[15%] bg-slate-50">            
+            <p className="p-3 border border-white border-b-slate-200 bg-slate-100">Components</p>
+            <div className="w-full">
                 {
-                    elements.map((element, index) => {
+                    components.map(element => {
                         return (
-                            <p key={index} 
-                                className="px-3 py-2 border-white-500/50 bg-slate-900 m-1 text-center text-sm cursor-pointer rounded hover:bg-fuchsia-600" 
-                                id={element} 
+                            <div key={element.id} className="flex w-full items-center px-3 py-2 hover:bg-fuchsia-600 hover:text-white">
+                            <span className="mr-3">{element.icon}</span>
+                            <p
+                                className="border-white-500/50 my-1 w-full text-sm cursor-pointer" 
+                                id={element.title} 
                                 draggable="true" 
                                 onDragStart={(e) => handleDrag(e)} 
                                 onTouchStart={(e) => handleDrag(e)}
-                            >{element}</p>
+                            >{element.title}</p>
+                            </div>
                         )
                     })
                 }
             </div>
-
-            <p className="p-3">Components</p>
             
         </div>
     )

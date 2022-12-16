@@ -1,7 +1,6 @@
 import Box from "../../components/editor/box/box";
 import EditorHeader from "../../components/editor/header/header";
 import LeftPane from "../../components/editor/leftPane/leftPane";
-import RightPane from "../../components/editor/rightPane/rightPane";
 
 const Editor = () => {
     return (
@@ -11,7 +10,6 @@ const Editor = () => {
             <div className="flex items-stretch">
                 <LeftPane />
                 <Box />
-                <RightPane />
             </div>
         </div>
     )

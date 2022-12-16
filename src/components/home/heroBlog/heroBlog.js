@@ -4,7 +4,6 @@ import { formatDate } from "../../../utils/helpers/formatDate"
 
 
 const HeroBlog = ({ blog }) => {
-    const colors = ["#ff0000", "#ffa500"]
 
     return (
         <a href={`post/${blog.slug}`} className="md:m-2 md:my-2 my-2 sm:mb-2 mb-12 p-2 sm:flex block bg-white rounded relative">
@@ -23,10 +22,10 @@ const HeroBlog = ({ blog }) => {
                 </p>
                 <h1 className="font-heading text-xl font-bold">{blog.title}</h1>
                 <p className="my-2">
-                    <span className={`py-1 px-2 mr-2 rounded bg-[#0000ff]/[.1] text-[#0000ff] text-sm`}>{blog.category}</span>
+                    <a href={`/category/${blog.category}`} className={`py-1 px-2 pb-2 mr-2 rounded bg-fuchsia-100 text-fuchsia-600 text-xs hover:bg-fuchsia-500 hover:text-white`}>{blog.category}</a>
                     {
                     blog.tags.map((tag, i) => {
-                        return <span key={i} className={`py-1 px-2 mr-2 rounded bg-[${colors[i]}]/[.1] text-[${colors[i]}] text-sm`}>{tag}</span>
+                        return <a href={`tag/${tag}`} key={i} className={`py-1 px-2 pb-2 mr-2 rounded bg-orange-100 text-red-600 text-xs hover:bg-orange-500 hover:text-white`}>{tag}</a>
                     })
                 }</p>
                 <p>{blog.summary}</p>
