@@ -9,7 +9,7 @@ const Topbar = () => {
   const [catToggle, setCatToggle] = useState(false);
 
   return (
-    <div className="flex justify-between items-center relative px-[3%] md:py-0 py-3">
+    <div className="flex justify-between items-center relative px-[3%] md:py-0 py-3 shadow">
       <div className="flex items-center w-[18%]">
         <h3 className="font-heading md:text-xl text-[18px] text-fuchsia-600 font-semibold">
           Femsblog
@@ -75,7 +75,7 @@ const Topbar = () => {
       <div className="flex items-center">
         <Search />
         <button
-          className="md:hidden bg-gray-50 border border-gray-100 p-3 z-50 relative ml-1"
+          className="md:hidden bg-gray-50 border border-gray-100 p-3 z-50 relative ml-1 rounded"
           onClick={() => setToggle(!toggle)}
         >
           {toggle ? <FaTimes /> : <FaBars />}
