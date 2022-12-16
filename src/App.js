@@ -5,10 +5,11 @@ import Topbar from "./components/topbar/topbar";
 //Components
 import BlogsContextProvider from "./context/blogsContext";
 import Chat from "./views/chat/chat";
-import Editor from "./views/editor/editor";
 
 //Views
 import Home from "./views/home/home";
+import Post from "./views/post/post";
+import Editor from "./views/editor/editor";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <Topbar />
 
         <Routes>
-          <Route exact path="/" element={<Home />} />    
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/post/:slug" element={<Post />} />    
           <Route exact path="/editor" element={<Editor />} />
           <Route exact path="/chat/*" element={<Chat />} />
         </Routes>

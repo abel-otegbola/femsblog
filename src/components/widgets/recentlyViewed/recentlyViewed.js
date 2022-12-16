@@ -1,10 +1,6 @@
-import { useEffect } from "react";
 import { FiChevronRight } from "react-icons/fi";
 
 const RecentlyViewed = ({ blogs }) => {
-    useEffect(() => {
-        console.log(blogs)
-    })
     return (
         <div>
             <h1 className="font-bold text-md p-2 bg-slate-100 mt-10">RECENTLY VIEWED</h1>
