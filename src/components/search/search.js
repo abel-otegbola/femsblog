@@ -19,7 +19,7 @@ const Search = () => {
       <button
         className={`${
           isOpen ? "bg-fuchsia-500" : "bg-gray-50 text-black"
-        } border border-gray-100 rounded py-[12px] px-3 text-white hover:bg-fuchsia-600 hover:text-white`}
+        } border border-gray-100 rounded py-[12px] px-3 text-white`}
         onClick={() => setOpen(!isOpen)}
       >
         {

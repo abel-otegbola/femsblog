@@ -1,38 +1,32 @@
-import { FiBold, FiImage, FiLink, FiType, FiVideo } from "react-icons/fi";
-import { BsCursorText, BsInputCursor } from "react-icons/bs";
-import { TbRectangle } from "react-icons/tb";
+import { FiFilePlus, FiFileText, FiFolder, FiImage, FiUsers } from "react-icons/fi";
+import { AiOutlineAppstore } from "react-icons/ai";
+import { useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const LeftPane = () => {
-    const handleDrag = (e) => {
-        e.dataTransfer.setData("Text", e.target.id)
-    }
+    const [isOpen, setOpen] = useState(false)
     const components = [
-        { id: 1, title: "heading", icon: <FiBold />},
-        { id: 2, title: "text", icon: <FiType />},
-        { id: 3, title: "span", icon: <BsCursorText />},
-        { id: 4, title: "input", icon: <BsInputCursor />},
-        { id: 5, title: "link", icon: <FiLink />},
-        { id: 6, title: "button", icon: <TbRectangle />},
-        { id: 7, title: "image", icon: <FiImage />},
-        { id: 8, title: "video", icon: <FiVideo />},
+        { id: 1, title: "Dashboard", icon: <AiOutlineAppstore />},
+        { id: 2, title: "Posts", icon: <FiFileText />},
+        { id: 3, title: "New post", icon: <FiFilePlus />},
+        { id: 4, title: "Pages", icon: <FiFolder />},
+        { id: 5, title: "Media", icon: <FiImage />},
+        { id: 6, title: "Team", icon: <FiUsers />},
     ];
 
     return (
-        <div className="w-[15%] bg-slate-50">            
-            <p className="p-3 border border-white border-b-slate-200 bg-slate-100">Components</p>
-            <div className="w-full">
+        <div className={`md:w-[15%] bg-slate-50 h-screen md:relative fixed z-50 ${isOpen ? "w-[75%]" : "w-[0px] md:w-[0px]"} transition-all duration-500`}>  
+            <span className="p-[10px] text-[10px] bg-slate-200 absolute top-[2px] -right-[32px]" onClick={() => setOpen(!isOpen)}>{isOpen ? <FaChevronLeft /> : <FaChevronRight />}</span>          
+            <div className="w-full overflow-hidden">
                 {
                     components.map(element => {
                         return (
                             <div key={element.id} className="flex w-full items-center px-3 py-2 hover:bg-fuchsia-600 hover:text-white">
-                            <span className="mr-3">{element.icon}</span>
-                            <p
-                                className="border-white-500/50 my-1 w-full text-sm cursor-pointer" 
-                                id={element.title} 
-                                draggable="true" 
-                                onDragStart={(e) => handleDrag(e)} 
-                                onTouchStart={(e) => handleDrag(e)}
-                            >{element.title}</p>
+                                <span className="mr-3">{element.icon}</span>
+                                <p
+                                    className="border-white-500/50 my-1 w-full text-sm cursor-pointer" 
+                                    id={element.title} 
+                                >{element.title}</p>
                             </div>
                         )
                     })

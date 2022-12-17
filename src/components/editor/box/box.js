@@ -1,48 +1,8 @@
-import { useState } from "react"
 import { FaTimesCircle } from "react-icons/fa"
 import { formatDate } from "../../../utils/helpers/formatDate"
-import Button from "../elements/button"
-import Heading from "../elements/heading"
-import Image from "../elements/image"
-import Input from "../elements/input"
-import Link from "../elements/link"
-import Span from "../elements/span"
-import Text from "../elements/text"
+import Block from "../block/block"
 
-const Box = () => {
-    const [dragged, setDragged] = useState("border-blue-300")
-    const [elements, setElements] = useState([]);
-    const [blog, setBlog] = useState({
-        id: 5,
-        author_id: 1,
-        title: "Input post title here",
-        category: "Input post category",
-        tags: [],
-        summary: "Type in the post summary here",
-        slug: "",
-        createdAt: "",
-        updatedAt: "",
-        content: []
-    })
-
-    const handleDragOver = (e) => {
-        e.preventDefault()
-    }
-
-    const handleDrop = (e) => {
-        let newElement = e.dataTransfer.getData("Text")
-        
-        setElements([...elements, {
-            name: newElement,
-            styles: ["p-2"]
-        }])
-
-        setBlog({ ...blog, content: blog.content.push([newElement]) })
-
-        console.log(blog)
-
-        setDragged("border-blue-300")
-    }
+const Box = ({ blog, setBlog }) => {
 
     const handleTags = (e) => {
         if(e.key === "Enter") {
@@ -50,14 +10,26 @@ const Box = () => {
         }
     }
 
+    const handleTitle = (title) => {
+        setBlog({ ...blog, title, slug: title.replace(" ", "-") })
+    }
+
+    const handleCategory = (category) => {
+        setBlog({ ...blog, category })
+    }
+
+    const handleSummary = (summary) => {
+        setBlog({ ...blog, summary })
+    }
+
     return (
-        <div className="flex-1">
+        <div className="flex-1 border border-slate-400 p-[3%]">
             
-            <input className="w-full border-none text-center uppercase text-[10px] mb-3 mt-[30px] focus:outline-gray-100" placeholder={blog.category}/>
-            <input className="w-full border-none text-center font-bold text-2xl focus:outline-gray-100" placeholder={blog.title}/>
+            <input className="w-full border-none text-center uppercase text-[10px] mb-3 focus:outline-gray-100" placeholder={blog.category} onChange={(e) => handleCategory(e.target.value)}/>
+            <input className="w-full border-none text-center font-bold text-2xl focus:outline-gray-100" placeholder={blog.title} onChange={(e) => handleTitle(e.target.value)}/>
             <p className="text-fuchsia-500 py-2 text-center">
                 {
-                    formatDate(blog.createdAt || "2022-10-10 5:02").map((item, i) => { return (
+                    formatDate(blog.createdAt).map((item, i) => { return (
                         <span key={i} className="mr-2">{item}</span>
                     ) })
                 }
@@ -71,35 +43,9 @@ const Box = () => {
                 }
                 <input className={`w-28 py-1 px-2 pb-2 mr-2 rounded text-sm border border-gray-200 focus:outline-gray-100 text-center`} placeholder="Input tag" onKeyUp={(e) => handleTags(e)}/>
             </p>
+            <input className="w-full border-none text-center py-2 my-4 focus:outline-gray-100" placeholder={blog.summary} onChange={(e) => handleSummary(e.target.value)}/>
 
-            <div className={`w-full min-h-[300px] border ${dragged}`} 
-                onDragOver={(e)=> { handleDragOver(e); setDragged("border-2 border-green-300") }}
-                onTouchMove={(e)=> { handleDragOver(e); setDragged("border-2 border-green-300") }}
-                onDrop={(e)=>handleDrop(e)}
-            >
-                {
-                    elements.map((element,index) => { 
-                        return (
-                            (element.name === "heading") ? <Heading styles={element.styles} key={index}/>
-                            : 
-                            (element.name === "text") ? <Text styles={element.styles} key={index}/>
-                            :
-                            (element.name === "link") ? <Link styles={element.styles} key={index}/>
-                            :
-                            (element.name === "button") ? <Button styles={element.styles} key={index}/>
-                            :
-                            (element.name === "span") ? <Span styles={element.styles} key={index}/>
-                            :
-                            (element.name === "input") ? <Input styles={element.styles} key={index}/>
-                            :
-                            (element.name === "image") ? <Image styles={element.styles} key={index}/>
-                            :
-                            ""
-                        ) 
-                    })
-                }
-
-            </div>
+            <Block blog={blog} setBlog={setBlog} />
         </div>
     )
 }

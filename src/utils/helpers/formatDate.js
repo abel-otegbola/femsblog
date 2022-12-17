@@ -1,9 +1,7 @@
 export const formatDate = (date) => {
     let newDate = [];
 
-    const splitted = date.split(" ");
-
-    const splittedDate = splitted[0].split("-");
+    const splittedDate = date.split("-");
 
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 

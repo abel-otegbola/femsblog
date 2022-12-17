@@ -22,10 +22,10 @@ const HeroBlog = ({ blog }) => {
                 </p>
                 <h1 className="font-heading text-xl font-bold">{blog.title}</h1>
                 <p className="my-2">
-                    <a href={`/category/${blog.category}`} className={`py-1 px-2 pb-2 mr-2 rounded bg-fuchsia-100 text-fuchsia-600 text-xs hover:bg-fuchsia-500 hover:text-white`}>{blog.category}</a>
+                    <a href={`/category/${blog.category.replace(" ", "-")}`} className={`py-1 px-2 pb-2 mr-2 rounded bg-fuchsia-100 text-fuchsia-600 text-xs hover:bg-fuchsia-500 hover:text-white`}>{blog.category}</a>
                     {
                     blog.tags.map((tag, i) => {
-                        return <a href={`tag/${tag}`} key={i} className={`py-1 px-2 pb-2 mr-2 rounded bg-orange-100 text-red-600 text-xs hover:bg-orange-500 hover:text-white`}>{tag}</a>
+                        return <a href={`tag/${tag.replace(" ", "-")}`} key={i} className={`py-1 px-2 pb-2 mr-2 rounded bg-orange-100 text-red-600 text-xs hover:bg-orange-500 hover:text-white`}>{tag}</a>
                     })
                 }</p>
                 <p>{blog.summary}</p>

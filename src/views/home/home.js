@@ -6,7 +6,7 @@ import WidgetPanel from "../../components/widgets/widgetsPanel/widgetsPanel";
 import SideBarPanel from "../../components/sideBar/sideBarPanel/sideBarPanel";
 
 const Home = () => {
-    const blogs = useContext(BlogsContext)
+    const {blogs} = useContext(BlogsContext)
 
     return(
         <main className="font-display">

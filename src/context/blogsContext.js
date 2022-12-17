@@ -1,17 +1,18 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect } from "react";
+import { useLocalStorage } from "../customHooks/useLocalStorage";
 import { blogsData } from "../data/blogs"
 
 export const BlogsContext = createContext()
 
 const BlogsContextProvider = ({ children }) => {
-    const [blogs, setBlogs] = useState([]);
+    const [blogs, setBlogs] = useLocalStorage("blogs", blogsData);
 
     useEffect(() => {
-        setBlogs(blogsData)
-    }, [setBlogs])
+        console.log(blogs)
+    })
 
     return (
-        <BlogsContext.Provider value={blogs}>
+        <BlogsContext.Provider value={{blogs,setBlogs}}>
             { children }
         </BlogsContext.Provider>
     )
