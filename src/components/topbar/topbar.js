@@ -12,7 +12,7 @@ const Topbar = () => {
     <div className="flex justify-between items-center relative px-[3%] md:py-0 py-3 shadow">
       <div className="flex items-center w-[18%]">
         <h3 className="font-heading md:text-xl text-[18px] text-fuchsia-600 font-semibold">
-          Femsblog
+          <a href="/">Femsblog</a>
         </h3>
       </div>
       <nav
@@ -24,15 +24,16 @@ const Topbar = () => {
           {["/", "Categories", "Saved"].map((link, index) => {
             return (
               <li key={index} className="md:p-0 p-[18px] flex md:auto w-full border border-gray-50 border-b-gray-200 md:border-none">
-                <a
-                  href={link}
+                <div
                   className={`md:p-2 md:py-5 w-full mx-3 flex justify-between items-center relative ${
                     active === link ? "text-fuchsia-500" : ""
                   }`}
                 >
-                  <p className="hover:text-fuchsia-500">
+                  <a 
+                  href={link}
+                  className="hover:text-fuchsia-500">
                     {link === "/" ? "Home" : link}
-                  </p>
+                  </a>
                   {link === "Categories" ? (
                     <div>
                       <FaChevronDown
@@ -66,7 +67,7 @@ const Topbar = () => {
                   ) : (
                     ""
                   )}
-                </a>
+                </div>
               </li>
             );
           })}

@@ -8,6 +8,7 @@ const WidgetPanel = ({ blogs }) => {
     const [viewedIds, setViewedIds] = useState([])
     const [recentlyViewed, setRecentlyViewed] = useState([])
 
+
     useEffect(() => {
         setViewedIds([2, 1, 4])
     }, [setViewedIds])

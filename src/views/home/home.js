@@ -13,12 +13,11 @@ const Home = () => {
             <HeroSection />
 
             <div className="flex flex-wrap bg-gray-100 p-2">
-                <div className="md:w-[20%] w-full p-3 bg-white">
-                    <SideBarPanel />
+                <div className="lg:w-[20%] w-full lg:sticky top-2 h-[110%] lg:order-none order-2 p-3 pb-10 bg-white">
+                    <SideBarPanel blogs={blogs} />
                 </div>
 
-                <div className="md:w-[55%] w-full">
-                    <h1 className="font-bold text-xl p-4 text-center underline underline-offset-4">TRENDING</h1>
+                <div className="flex-1">
                     {
                         blogs.map(blog => {
                             return (
@@ -28,11 +27,14 @@ const Home = () => {
                     }
                 </div>
 
-                <div className="md:w-[25%] w-full p-3 bg-white">
+                <div className="lg:w-[25%] w-full lg:sticky lg:h-[120%] top-2 p-3 bg-white">
                     <WidgetPanel blogs={blogs}/>
                 </div>
             </div>
             
+            <div className="">
+                <h1 className="font-bold text-xl p-4 text-center underline underline-offset-4">TRENDING</h1>
+            </div>
         </main>
     )
 }
