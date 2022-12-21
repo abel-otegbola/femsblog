@@ -4,12 +4,15 @@ import LeftPane from "../../components/editor/leftPane/leftPane";
 import uuid from "react-uuid"
 import { useContext, useState } from "react";
 import { BlogsContext } from "../../context/blogsContext";
+import { UserContext } from "../../context/userContext";
 
 const Editor = () => {
+    const { user } = useContext(UserContext);
+
     const { blogs, setBlogs } = useContext(BlogsContext)
     const [blog, setBlog] = useState({
         id: uuid(),
-        author_id: 1,
+        author: user.name,
         title: "Input post title here",
         category: "Input post category",
         tags: [],

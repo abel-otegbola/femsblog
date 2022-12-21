@@ -5,7 +5,7 @@ import cell from "../img/cell.png";
 export const blogsData = [
     {
         id: 1,
-        author_id: 1,
+        author: "Shakesfem",
         title: "How to code using javascript",
         content: `<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, <a href='https://google.com' style='color: rgb(217,70,239)'>quam</a> hac vivamus a congue rutrum et mus, condimentum sociis commodo sapien dapibus nisl. Erat dignissim habitant quam a cum turpis scelerisque morbi tempus, dui mollis in nisl bibendum cubilia augue condimentum magna,</p>
                    <blockquote>What doesn't kill a man only makes him stronger.</blockquote> 
@@ -24,7 +24,7 @@ export const blogsData = [
     },
     {
         id: 2,
-        author_id: 1,
+        author: "Shakesfem",
         title: "Best selling videos of 2022",
         content: `<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, <a href='https://google.com' style='color: rgb(217,70,239)'>quam</a> hac vivamus a congue rutrum et mus, condimentum sociis commodo sapien dapibus nisl. Erat dignissim habitant quam a cum turpis scelerisque morbi tempus, dui mollis in nisl bibendum cubilia augue condimentum magna,</p>
                     <blockquote>What doesn't kill a man only makes him stronger.</blockquote> 
@@ -43,7 +43,7 @@ export const blogsData = [
     },
     {
         id: 3,
-        author_id: 1,
+        author: "Shakesfem",
         title: "Coming of age advancement in technology",
         content: `<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, <a href='https://google.com' style='color: rgb(217,70,239)'>quam</a> hac vivamus a congue rutrum et mus, condimentum sociis commodo sapien dapibus nisl. Erat dignissim habitant quam a cum turpis scelerisque morbi tempus, dui mollis in nisl bibendum cubilia augue condimentum magna,</p>
                     <blockquote>What doesn't kill a man only makes him stronger.</blockquote> 
@@ -62,7 +62,7 @@ export const blogsData = [
     },
     {
         id: 4,
-        author_id: 1,
+        author: "Shakesfem",
         title: "Best design practices every designer should employ",
         content: `<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, <a href='https://google.com' style='color: rgb(217,70,239)'>quam</a> hac vivamus a congue rutrum et mus, condimentum sociis commodo sapien dapibus nisl. Erat dignissim habitant quam a cum turpis scelerisque morbi tempus, dui mollis in nisl bibendum cubilia augue condimentum magna,</p>
                     <blockquote>What doesn't kill a man only makes him stronger.</blockquote> 

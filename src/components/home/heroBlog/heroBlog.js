@@ -16,7 +16,7 @@ const HeroBlog = ({ blog }) => {
                 <p className="text-gray-400 py-2">
                     {
                         formatDate(blog.createdAt).map((item, i) => { return (
-                            <span key={i} className="mr-2">{item}</span>
+                            <span key={i} className="mr-1">{item}</span>
                         ) })
                     }
                 </p>
@@ -30,7 +30,7 @@ const HeroBlog = ({ blog }) => {
                 }</p>
                 <p>{blog.summary}</p>
 
-                <div className="flex items-center text-gray-400 text-md mr-10 mt-5"><FiUser className="p-1 rounded-full bg-gray-300 text-white text-2xl mr-2"/>Admin</div>
+                <div className="flex items-center text-gray-400 text-md mr-10 mt-5"><FiUser className="p-1 rounded-full bg-gray-300 text-white text-2xl mr-2"/>{blog.author}</div>
             </div>
         </a>
     )

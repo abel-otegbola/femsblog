@@ -10,10 +10,12 @@ import Chat from "./views/chat/chat";
 import Home from "./views/home/home";
 import Post from "./views/post/post";
 import Editor from "./views/editor/editor";
+import UserContextProvider from "./context/userContext";
 
 function App() {
   return (
     <BlogsContextProvider>
+    <UserContextProvider>
       <BrowserRouter>
       <Topbar />
 
@@ -26,6 +28,7 @@ function App() {
 
         <Footer />
       </BrowserRouter>
+    </UserContextProvider>
     </BlogsContextProvider>
   );
 }
