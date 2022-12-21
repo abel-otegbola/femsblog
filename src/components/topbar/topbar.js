@@ -1,12 +1,25 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaBars, FaChevronDown, FaTimes } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import { BlogsContext } from "../../context/blogsContext";
 import Search from "../search/search";
 
 const Topbar = () => {
   const active = useLocation().pathname;
   const [toggle, setToggle] = useState(false);
   const [catToggle, setCatToggle] = useState(false);
+  const [categories, setCategories] = useState([])
+  const { blogs } = useContext(BlogsContext)
+
+  
+  useEffect(() => {
+    blogs.forEach((blog) => {
+        if(categories.indexOf(blog.category) < 0) {
+            setCategories([...categories, blog.category])
+        }
+    })
+  }, [blogs, categories])
+
 
   return (
     <div className="flex justify-between items-center relative px-[3%] md:py-0 py-3 shadow">
@@ -21,7 +34,7 @@ const Topbar = () => {
         } md:overflow-visible overflow-hidden h-screen shadow-lg top-0 right-0 bg-white z-10 transition-all duration-700`}
       >
         <ul className="md:flex items-center text-gray-800 font-semibold md:w-auto w-full">
-          {["/", "Categories", "Saved"].map((link, index) => {
+          {["", "Categories", "Saved"].map((link, index) => {
             return (
               <li key={index} className="md:p-0 p-[18px] flex md:auto w-full border border-gray-50 border-b-gray-200 md:border-none">
                 <div
@@ -30,9 +43,9 @@ const Topbar = () => {
                   }`}
                 >
                   <a 
-                  href={link}
+                  href={`/${link}`}
                   className="hover:text-fuchsia-500">
-                    {link === "/" ? "Home" : link}
+                    {link === "" ? "Home" : link}
                   </a>
                   {link === "Categories" ? (
                     <div>
@@ -46,15 +59,15 @@ const Topbar = () => {
                       <ul
                         className={`${
                           catToggle ? "block" : "hidden"
-                        } absolute bg-white top-[100%] right-0 p-2 rounded shadow-lg z-50`}
+                        } absolute bg-white top-[100%] min-w-[200px] right-0 p-2 rounded shadow-lg z-50`}
                       >
-                        {["General", "Entertainment", "Music", "Science"].map(
+                        {categories.map(
                           (category, i) => {
                             return (
-                              <li key={i} className="flex w-full border border-gray-50 border-b-gray-200 p-[8px] pr-[30px]">
+                              <li key={i} className="flex w-full border border-gray-50 border-t-gray-200 border-b-gray-200 p-[6px] pr-[30px]">
                                 <a
                                   href={category}
-                                  className="w-full mx-2 p-[8px] hover:text-fuchsia-500 "
+                                  className="w-full mx-2 p-[6px] hover:text-fuchsia-500 "
                                 >
                                   {category}
                                 </a>

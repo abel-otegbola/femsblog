@@ -1,9 +1,8 @@
 const SideBarLink = ({ link }) => {
     return (
-        <div className="flex items-center p-4 my-1 rounded hover:bg-slate-100 hover:text-fuchsia-600 cursor-pointer border border-gray-100">
-            <div className="mr-4 text-lg">{link.icon}</div>
-            <p>{link.title}</p>
-        </div>
+        <a href={`/categories/${link}`} className="flex items-center p-4 my-1 rounded hover:bg-slate-100 hover:text-fuchsia-600 cursor-pointer border border-gray-100">
+            {link}
+        </a>
     )
 }
 
