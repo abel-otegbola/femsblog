@@ -12,6 +12,7 @@ import Post from "./views/post/post";
 import Editor from "./views/editor/editor";
 import UserContextProvider from "./context/userContext";
 import Categories from "./views/categories/categories";
+import Saved from "./views/saved/saved";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/post/:slug" element={<Post />} />    
           <Route exact path="/categories/:category" element={<Categories />} />    
           <Route exact path="/categories" element={<Categories />} /> 
+          <Route exact path="/saved" element={<Saved />} /> 
           <Route exact path="/editor" element={<Editor />} />
           <Route exact path="/chat/*" element={<Chat />} />
         </Routes>

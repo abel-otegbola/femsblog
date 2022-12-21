@@ -33,7 +33,7 @@ const Categories = () => {
                     }
                 </div>
                 {
-                    category ? <div className="flex-1">
+                    category ? <div className="flex-1 my-2">
                     {
                         blogs.filter(item => item.category === category).map(blog => {
                             return (
@@ -43,7 +43,7 @@ const Categories = () => {
                     }
                     </div>
                     :
-                    <div className="flex-1">
+                    <div className="flex-1 my-2">
                     {
                         blogs.map(blog => {
                             return (

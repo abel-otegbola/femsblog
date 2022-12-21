@@ -6,7 +6,7 @@ import { formatDate } from "../../../utils/helpers/formatDate"
 const HeroBlog = ({ blog }) => {
 
     return (
-        <a href={`post/${blog.slug}`} className="md:mx-2 md:mb-2 mb-2 sm:mb-2 p-2 sm:flex block bg-white rounded relative">
+        <a href={`/post/${blog.slug}`} className="md:mx-2 md:mb-2 mb-2 sm:mb-2 p-2 sm:flex block bg-white rounded relative">
             {
                 blog.liked ? <FaHeart  className="absolute right-5 top-5 text-red-500"/>
                 :  <FiHeart  className="absolute right-5 top-5"/>

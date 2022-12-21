@@ -22,9 +22,10 @@ const Post = () => {
                     <p className="text-fuchsia-500 py-2 text-center">
                         {
                             formatDate(post.createdAt || "2022-10-10 5:02").map((item, i) => { return (
-                                <span key={i} className="mr-2">{item}</span>
+                                <span key={i} className="mr-1">{item}</span>
                             ) })
                         }
+                        <span className="ml-4">By {post.author}</span>
                     </p>
                     
                     <p className="my-2 text-center">
