@@ -25,7 +25,7 @@ const HeroBlog = ({ blog }) => {
                     <a href={`/categories/${blog.category}`} className={`py-1 px-2 mr-2 rounded bg-fuchsia-100 text-fuchsia-600 text-xs hover:bg-fuchsia-500 hover:text-white`}>{blog.category}</a>
                     {
                     blog.tags.map((tag, i) => {
-                        return <a href={`tags/${tag.replace(" ", "-")}`} key={i} className={`py-1 px-2 mr-2 rounded bg-orange-100 text-red-600 text-xs hover:bg-orange-500 hover:text-white`}>{tag}</a>
+                        return <a href={`/tags/${tag.replace(" ", "-")}`} key={i} className={`py-1 px-2 mr-2 rounded bg-orange-100 text-red-600 text-xs hover:bg-orange-500 hover:text-white`}>{tag}</a>
                     })
                 }</p>
                 <p>{blog.summary}</p>

@@ -27,7 +27,7 @@ const Categories = () => {
                     {
                         categories.map((item, i) => {
                             return (
-                                <a href={item} key={i} className={`px-4 py-4 border border-gray-100 block w-full hover:bg-fuchsia-600 hover:text-white ${(item === category) ? "bg-fuchsia-600 text-white" : ""}`}>{item}</a>
+                                <a href={`/categories/${item}`} key={i} className={`px-4 py-4 border border-gray-100 block w-full hover:bg-fuchsia-600 hover:text-white ${(item === category) ? "bg-fuchsia-600 text-white" : ""}`}>{item}</a>
                             )
                         })
                     }

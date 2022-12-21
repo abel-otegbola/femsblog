@@ -17,7 +17,7 @@ const Post = () => {
             {
                post && 
                <div className="px-[3%] py-[30px]">
-                <a href={`/categories/${post.category && post.category.replace(" ", "-")}`} className="text-center flex w-full justify-center uppercase text-[14px] mb-3">{post.category}</a>
+                <a href={`/categories/${post.category && post.category}`} className="text-center flex w-full justify-center uppercase text-[14px] mb-3">{post.category}</a>
                     <h1 className="text-center font-bold text-2xl">{post.title}</h1>
                     <p className="text-fuchsia-500 py-2 text-center">
                         {

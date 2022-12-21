@@ -1,12 +1,11 @@
 import Box from "../../components/editor/box/box";
 import EditorHeader from "../../components/editor/header/header";
-import LeftPane from "../../components/editor/leftPane/leftPane";
 import uuid from "react-uuid"
 import { useContext, useState } from "react";
 import { BlogsContext } from "../../context/blogsContext";
 import { UserContext } from "../../context/userContext";
 
-const Editor = () => {
+const NewPost = () => {
     const { user } = useContext(UserContext);
 
     const { blogs, setBlogs } = useContext(BlogsContext)
@@ -33,11 +32,10 @@ const Editor = () => {
             <EditorHeader handlePublish={publish} />
 
             <div className="flex items-stretch">
-                <LeftPane />
                 <Box blog={blog} setBlog={setBlog} />
             </div>
         </div>
     )
 }
 
-export default Editor;
+export default NewPost;

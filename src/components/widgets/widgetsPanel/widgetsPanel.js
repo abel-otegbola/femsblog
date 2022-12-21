@@ -27,7 +27,7 @@ const WidgetPanel = ({ blogs }) => {
         <div>
             <SavedBlogs blogs={savedBlogs}/>
             <button className="px-4 py-2 bg-fuchsia-600 text-white rounded my-2 hover:bg-fuchsia-700">
-                <a href="/">View all</a>
+                <a href="/saved">View all</a>
             </button>
             <RecentlyViewed blogs={recentlyViewed} />
         </div>

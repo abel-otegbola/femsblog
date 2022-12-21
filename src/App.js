@@ -9,10 +9,11 @@ import Chat from "./views/chat/chat";
 //Views
 import Home from "./views/home/home";
 import Post from "./views/post/post";
-import Editor from "./views/editor/editor";
 import UserContextProvider from "./context/userContext";
 import Categories from "./views/categories/categories";
 import Saved from "./views/saved/saved";
+import Tags from "./views/tags/tags";
+import Admin from "./views/admin/admin";
 
 function App() {
   return (
@@ -26,8 +27,9 @@ function App() {
           <Route exact path="/post/:slug" element={<Post />} />    
           <Route exact path="/categories/:category" element={<Categories />} />    
           <Route exact path="/categories" element={<Categories />} /> 
+          <Route exact path="/tags/:tag" element={<Tags />} /> 
           <Route exact path="/saved" element={<Saved />} /> 
-          <Route exact path="/editor" element={<Editor />} />
+          <Route exact path="/admin/*" element={<Admin />} />
           <Route exact path="/chat/*" element={<Chat />} />
         </Routes>
 

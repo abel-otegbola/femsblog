@@ -66,7 +66,7 @@ const Topbar = () => {
                             return (
                               <li key={i} className="flex w-full border border-gray-50 border-t-gray-200 border-b-gray-200 p-[6px] pr-[30px]">
                                 <a
-                                  href={category}
+                                  href={`/categories/${category}`}
                                   className="w-full mx-2 p-[6px] hover:text-fuchsia-500 "
                                 >
                                   {category}
