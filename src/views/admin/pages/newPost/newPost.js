@@ -1,9 +1,9 @@
-import Box from "../../components/editor/box/box";
-import EditorHeader from "../../components/editor/header/header";
+import Box from "../../../../components/editor/box/box";
+import EditorHeader from "../../../../components/editor/header/editorHeader";
 import uuid from "react-uuid"
 import { useContext, useState } from "react";
-import { BlogsContext } from "../../context/blogsContext";
-import { UserContext } from "../../context/userContext";
+import { BlogsContext } from "../../../../context/blogsContext";
+import { UserContext } from "../../../../context/userContext";
 
 const NewPost = () => {
     const { user } = useContext(UserContext);

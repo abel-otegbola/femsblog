@@ -14,11 +14,13 @@ import Categories from "./views/categories/categories";
 import Saved from "./views/saved/saved";
 import Tags from "./views/tags/tags";
 import Admin from "./views/admin/admin";
+import CommentsContextProvider from "./context/commentsContext";
 
 function App() {
   return (
     <BlogsContextProvider>
     <UserContextProvider>
+    <CommentsContextProvider>
       <BrowserRouter>
       <Topbar />
 
@@ -35,6 +37,7 @@ function App() {
 
         <Footer />
       </BrowserRouter>
+    </CommentsContextProvider>
     </UserContextProvider>
     </BlogsContextProvider>
   );

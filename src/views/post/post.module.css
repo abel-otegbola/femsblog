@@ -1,0 +1,10 @@
+.post a {
+    color: rgb(217 70 239);
+}
+.post a:visited {
+    color: purple;
+}
+.post li {
+    list-style: disc;
+    margin-left: 17px;
+}

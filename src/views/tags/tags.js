@@ -31,10 +31,11 @@ const Tags = () => {
                             )
                         })
                     }
-                    </div>
+                </div>
             
-                    <div className="flex-1 my-10 p-4 text-center">
-                        <h1 className="p-4">OTHER TAGS</h1>
+                <div className="flex-1 my-10 p-4 text-center">
+                    <h1 className="p-4">OTHER TAGS</h1>
+                    <div className="flex flex-wrap justify-center">
                     {
                         tags.map((tag, i) => {
                             return (
@@ -42,6 +43,7 @@ const Tags = () => {
                             )
                         })
                     }
+                    </div>
                 </div>
         </div>
     )

@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CommentSection from "../../components/comments/commentsSection";
 import { BlogsContext } from "../../context/blogsContext";
 import { formatDate } from "../../utils/helpers/formatDate";
+import styles from "./post.module.css"
 
 const Post = () => {
     const [post, setPost] = useState([])
@@ -36,11 +38,16 @@ const Post = () => {
                     }</p>
                     <img src={post.imgUrl} alt={post.title} className="md:w-[75%] w-full my-4 mx-auto" />
 
-                    <div className="md:w-[75%] w-full mx-auto">
+                    <div className={`md:w-[75%] w-full mx-auto ${styles.post}`}>
                         <div className="leading-8 text-justify my-4 first-letter:text-5xl" dangerouslySetInnerHTML={{ __html: post.content}} />
+                    </div>
+
+                    <div>
+                        <CommentSection id={post.id}/>
                     </div>
                </div>
             }
+
         </div>
     )
 }
