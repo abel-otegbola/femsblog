@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { FaHeart, FaReply, FaSmile } from "react-icons/fa";
 import { CommentsContext } from "../../context/commentsContext";
 import { formatDate } from "../../utils/helpers/formatDate";
+import AddReaction from "./addReaction";
 
 const SingleComment = ({ comment }) => {
     const { comments } = useContext(CommentsContext);
@@ -24,11 +24,7 @@ const SingleComment = ({ comment }) => {
                     <p className="my-2">{comment.content}</p>
                 </div>
             </div>
-            <div className="flex gap-1">
-                <FaSmile className="text-yellow-500 shadow-lg p-[3px] bg-white text-xl rounded-full" />
-                <FaHeart className="text-red-500 shadow-lg p-[3px] bg-white text-xl rounded-full" />
-                <FaReply className="text-gray-500 shadow-lg p-[3px] bg-white text-xl rounded" title="Reply" />
-            </div>
+            <AddReaction reaction={comment.reaction} id={comment.id}/>
         </div>
     )
 }

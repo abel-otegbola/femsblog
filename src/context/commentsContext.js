@@ -9,7 +9,7 @@ const initialComments = [
         post_id: 2,
         content: "The post was very insightful. Really enjoyed it.",
         name: "Sogo",
-        reaction: "heart",
+        reaction: "",
         commented_on: "20-12-2021 12:00",
         replied_to: null
     },
