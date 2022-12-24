@@ -15,6 +15,8 @@ import Saved from "./views/saved/saved";
 import Tags from "./views/tags/tags";
 import Admin from "./views/admin/admin";
 import CommentsContextProvider from "./context/commentsContext";
+import Login from "./views/login/login";
+import Signup from "./views/signup/signup";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
           <Route exact path="/saved" element={<Saved />} /> 
           <Route exact path="/admin/*" element={<Admin />} />
           <Route exact path="/chat/*" element={<Chat />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/signup" element={<Signup />} />
         </Routes>
 
         <Footer />

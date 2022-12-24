@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CommentSection from "../../components/comments/commentsSection";
+import RelatedPosts from "../../components/relatedPost/relatedPost";
 import { BlogsContext } from "../../context/blogsContext";
 import { formatDate } from "../../utils/helpers/formatDate";
 import styles from "./post.module.css"
@@ -44,6 +45,10 @@ const Post = () => {
 
                     <div>
                         <CommentSection id={post.id}/>
+                    </div>
+
+                    <div>
+                        <RelatedPosts tags={post.tags} category={post.category} id={post.id}/>
                     </div>
                </div>
             }

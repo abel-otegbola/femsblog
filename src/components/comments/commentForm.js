@@ -25,14 +25,19 @@ const CommentForm = ({ post_id, comment_id, setReply }) => {
             }
         ])
 
-        setReply(false)
+        if(setReply) {
+            setReply(false)
+        }
+        setName("")
+        setEmail("")
+        setComment("")
     }
 
     return (
         <form className="py-4 flex flex-wrap justify-between bg-white p-2" onSubmit={(e) => postComment(e)}>
-            <input className="p-2 border border-slate-300 w-[49%] focus:outline-fuchsia-400 focus:outline-4" type="text" placeholder="Name" required onChange={(e) =>setName(e.target.value) } />
-            <input className="p-2 border border-slate-300 w-[49%] focus:outline-fuchsia-400 focus:outline-4" type="email" placeholder="Email" required onChange={(e) => setEmail(e.target.value)} />
-            <textarea className="p-2 h-[200px] border border-slate-300 w-full my-4 focus:outline-fuchsia-400 focus:outline-4" placeholder="Comment" required onChange={(e) => setComment(e.target.value)}></textarea>
+            <input className="p-2 border border-slate-300 w-[49%] focus:outline-fuchsia-400 focus:outline-4" vlaue={name} type="text" placeholder="Name" required onChange={(e) =>setName(e.target.value) } />
+            <input className="p-2 border border-slate-300 w-[49%] focus:outline-fuchsia-400 focus:outline-4" value={email} type="email" placeholder="Email" required onChange={(e) => setEmail(e.target.value)} />
+            <textarea className="p-2 h-[200px] border border-slate-300 w-full my-4 focus:outline-fuchsia-400 focus:outline-4" value={comment} placeholder="Comment" required onChange={(e) => setComment(e.target.value)}></textarea>
             <button className="p-2 bg-fuchsia-600 text-white rounded text-center w-full hover:bg-fuchsia-700">POST COMMENT</button>
         </form>
     )
