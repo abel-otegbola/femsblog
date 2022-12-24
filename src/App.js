@@ -17,30 +17,33 @@ import Admin from "./views/admin/admin";
 import CommentsContextProvider from "./context/commentsContext";
 import Login from "./views/login/login";
 import Signup from "./views/signup/signup";
+import { AuthProvider } from "./customHooks/useAuth";
 
 function App() {
   return (
     <BlogsContextProvider>
     <UserContextProvider>
     <CommentsContextProvider>
-      <BrowserRouter>
-      <Topbar />
+      <AuthProvider>
+        <BrowserRouter>
+        <Topbar />
 
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/post/:slug" element={<Post />} />    
-          <Route exact path="/categories/:category" element={<Categories />} />    
-          <Route exact path="/categories" element={<Categories />} /> 
-          <Route exact path="/tags/:tag" element={<Tags />} /> 
-          <Route exact path="/saved" element={<Saved />} /> 
-          <Route exact path="/admin/*" element={<Admin />} />
-          <Route exact path="/chat/*" element={<Chat />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/signup" element={<Signup />} />
-        </Routes>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/post/:slug" element={<Post />} />    
+            <Route exact path="/categories/:category" element={<Categories />} />    
+            <Route exact path="/categories" element={<Categories />} /> 
+            <Route exact path="/tags/:tag" element={<Tags />} /> 
+            <Route exact path="/saved" element={<Saved />} /> 
+            <Route exact path="/admin/*" element={<Admin />} />
+            <Route exact path="/chat/*" element={<Chat />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/signup" element={<Signup />} />
+          </Routes>
 
-        <Footer />
-      </BrowserRouter>
+          <Footer />
+        </BrowserRouter>
+      </AuthProvider>
     </CommentsContextProvider>
     </UserContextProvider>
     </BlogsContextProvider>
