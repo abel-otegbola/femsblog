@@ -9,7 +9,6 @@ import Chat from "./views/chat/chat";
 //Views
 import Home from "./views/home/home";
 import Post from "./views/post/post";
-import UserContextProvider from "./context/userContext";
 import Categories from "./views/categories/categories";
 import Saved from "./views/saved/saved";
 import Tags from "./views/tags/tags";
@@ -22,7 +21,6 @@ import { AuthProvider } from "./customHooks/useAuth";
 function App() {
   return (
     <BlogsContextProvider>
-    <UserContextProvider>
     <CommentsContextProvider>
       <AuthProvider>
         <BrowserRouter>
@@ -45,7 +43,6 @@ function App() {
         </BrowserRouter>
       </AuthProvider>
     </CommentsContextProvider>
-    </UserContextProvider>
     </BlogsContextProvider>
   );
 }

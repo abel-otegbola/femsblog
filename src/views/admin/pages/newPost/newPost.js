@@ -3,15 +3,12 @@ import EditorHeader from "../../../../components/editor/header/editorHeader";
 import uuid from "react-uuid"
 import { useContext, useState } from "react";
 import { BlogsContext } from "../../../../context/blogsContext";
-import { UserContext } from "../../../../context/userContext";
 
 const NewPost = () => {
-    const { user } = useContext(UserContext);
-
     const { blogs, setBlogs } = useContext(BlogsContext)
     const [blog, setBlog] = useState({
         id: uuid(),
-        author: user.name,
+        author: "Shakesfem",
         title: "Input post title here",
         category: "Input post category",
         tags: [],

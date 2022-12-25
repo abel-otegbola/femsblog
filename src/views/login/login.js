@@ -16,7 +16,7 @@ const Login  = () => {
             setEmail("");
             setPassword("");
             const res = await signIn(email, password);
-            if (res.error) setError(res.error)
+            if (res.error){ setError("Login failed! Check your credentials and try again"); console.log(res)}
             else navigate("/admin")
     }
 
@@ -34,7 +34,7 @@ const Login  = () => {
                 </label>
                 <label htmlFor="password" className="w-full">
                     <p>Password:</p>
-                    <div className="flex w-full items-center mt-2 mb-8 bg-slate-200">
+                    <div className="flex w-full items-center mt-2 mb-8 bg-slate-100">
                         <input id="password" name="password" type={showPassword ? "text" : "password"} value={password} required  onChange={(e) => setPassword(e.target.value)}
                             className="w-full p-2 border border-gray-300 outline outline-fuchsia-100 focus:border-fuchsia-500" 
                         />
