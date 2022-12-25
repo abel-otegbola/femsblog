@@ -1,11 +1,10 @@
 import Box from "../../../../components/editor/box/box";
 import EditorHeader from "../../../../components/editor/header/editorHeader";
 import uuid from "react-uuid"
-import { useContext, useState } from "react";
-import { BlogsContext } from "../../../../context/blogsContext";
+import { useState } from "react";
+import { addNewBlog } from "../../../../firebase/firebase";
 
 const NewPost = () => {
-    const { blogs, setBlogs } = useContext(BlogsContext)
     const [blog, setBlog] = useState({
         id: uuid(),
         author: "Shakesfem",
@@ -21,7 +20,7 @@ const NewPost = () => {
     })
 
     const publish = () => {
-        setBlogs([...blogs, blog])
+        addNewBlog(blog)
     }
 
     return (

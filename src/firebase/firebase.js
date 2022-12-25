@@ -6,7 +6,7 @@ import {
     signInWithEmailAndPassword,
     signOut,
 } from "firebase/auth";
-import { getFirestore, addDoc, collection } from "firebase/firestore";
+import { getFirestore, addDoc, getDocs, collection } from "firebase/firestore";
 
 // My web app's Firebase configuration
 const firebaseConfig = {
@@ -70,3 +70,21 @@ export const logOut = async() => {
         return false
     }
 };
+
+
+export const getAllBlogs = async () =>  {
+    const querySnapshot = await getDocs(collection(db, "posts"));
+        querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+    })
+}
+
+export const addNewBlog = async (post) => {
+    try {
+        const docRef = await addDoc(collection(db, "posts"), post);
+    
+        console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+        console.error("Error adding post: ", e);
+    }
+}
