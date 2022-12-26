@@ -48,8 +48,8 @@ const Box = ({ blog, setBlog }) => {
         })
     }
 
-    const saveThumbnail = (imgUrl) => {
-        setBlog({ ...blog, imgUrl: { title: imgUrl.name, url: imgUrl.blob } })
+    const saveThumbnail = () => {
+        setBlog({ ...blog, imgUrl: { title: image.name, url: image.blob } })
     }
 
     return (
@@ -70,7 +70,7 @@ const Box = ({ blog, setBlog }) => {
                             return <span key={i} className={`flex items-center w-auto py-1 px-3 mr-2 rounded bg-fuchsia-500/[.1] text-fuchsia-600 text-sm`}>{tag} <FaTimesCircle className="ml-2" onClick={() => deleteTag(tag)} /></span>
                         })
                         }
-                        <input className={`w-28 py-1 px-2 pb-2 mr-2 rounded text-sm border-none focus:outline-none flex-1`} ref={inputRef} placeholder="Add tags" onKeyUp={(e) => handleTags(e)}/>
+                        <input className={`w-28 py-1 px-2 pb-2 mr-2 rounded text-sm border-none focus:outline-none flex-1`} ref={inputRef} placeholder="Add tags" onKeyDown={(e) => handleTags(e)}/>
                     </p>
                 </div>
             
@@ -88,7 +88,7 @@ const Box = ({ blog, setBlog }) => {
                             {
                                 image.blob !== "" ?
                                     <div className="flex gap-2 justify-center">
-                                        <button className="p-2 px-3 rounded bg-fuchsia-600 text-white text-[10px]" onClick={() => saveThumbnail(image.blob)}>Upload</button>
+                                        <button className="p-2 px-3 rounded bg-fuchsia-600 text-white text-[10px]" onClick={() => saveThumbnail()}>Upload</button>
                                         <button className="p-2 px-3 rounded bg-red-600 text-white text-[10px]" onClick={() => setImage({name: "", blob: "", alt: ""})}>Delete</button>
                                     </div>
                                 : ""

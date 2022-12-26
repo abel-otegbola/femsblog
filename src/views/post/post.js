@@ -44,7 +44,7 @@ const Post = () => {
                             return <a key={i} href={`/tags/${tag.replace(" ", "-")}`} className={`py-1 px-2 pb-2 mr-2 rounded bg-fuchsia-500/[.1] text-fuchsia-600 text-sm hover:bg-fuchsia-500 hover:text-white`}>{tag}</a>
                         })
                     }</p>
-                    <img src={post.imgUrl} alt={post.title} className="md:w-[75%] w-full my-4 mx-auto" />
+                    <img src={post.imgUrl.url} alt={post.title} className="md:w-[75%] w-full my-4 mx-auto" />
 
                     <div className={`md:w-[75%] w-full mx-auto ${styles.post}`}>
                         <div className="leading-8 text-justify my-4 first-letter:text-5xl" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content)}} />

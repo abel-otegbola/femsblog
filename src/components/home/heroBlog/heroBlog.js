@@ -11,7 +11,7 @@ const HeroBlog = ({ blog }) => {
                 blog.liked ? <FaBookmark  className="absolute right-5 top-5 text-red-500"/>
                 :  <FiBookmark  className="absolute right-5 top-5"/>
             }
-            <img src={blog.imgUrl} className="rounded sm:h-auto h-auto sm:w-[40%] w-[100%] object-cover" alt="blog" />
+            <img src={blog.imgUrl.url} className="rounded sm:h-auto h-auto sm:w-[40%] w-[100%] object-cover" alt={blog.imgUrl.title} />
             <div className="py-3 px-3 sm:w-[60%] w-[100%]">
                 <p className="text-gray-400 py-2">
                     {
