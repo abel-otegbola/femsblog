@@ -22,12 +22,12 @@ const AllPost = () => {
         <div className="">
             <Header text={"All Posts"} />
 
-            <div className="p-[1] bg-gray-100">
+            <div className="p-[1] bg-gray-100 w-full overflow-x-hidden">
                 <div className="bg-white flex">
                     
                 </div>
 
-                <div className="p-2 min-w-[900px] overflow-x-auto">
+                <div className="p-2 min-w-[900px]">
                     {
                         allBlogs.map(blog => {
                             return (

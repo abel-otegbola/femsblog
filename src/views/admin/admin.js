@@ -21,7 +21,7 @@ const Admin = () => {
     return (
         <div className="flex">
             <LeftPane logout={() => handleLogout()}/>
-            <div className="flex-1">
+            <div className="flex-1 overflow-x-auto min-h-[300px]">
                 <Routes>
                     <Route exact path="/" element={<Navigate replace to="/admin/dashboard" />} />
                     <Route exact path="/dashboard" element={<Dashboard />} />

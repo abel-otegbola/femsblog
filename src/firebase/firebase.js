@@ -80,7 +80,8 @@ export const getAllPosts = async () =>  {
         const querySnapshot = await getDocs(collection(db, "posts"));
         
         querySnapshot.forEach((doc) => {
-            postsArray.push(doc.data());
+            let eachPost = doc.data()
+            postsArray.push({ ...eachPost, id: doc.id });
         })
         return postsArray;
     }
@@ -91,7 +92,7 @@ export const getAllPosts = async () =>  {
 
 export const addNewPost = async (post) => {
     try {
-        const docRef = await addDoc(collection(db, "posts"), post);
+        const docRef = await addDoc(collection(db, "posts"), {post});
     
         console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -103,7 +104,7 @@ export const updatePost = (id, post) => {
     try {
         const docRef = doc(db, "posts", id);
 
-        updateDoc(docRef, post)
+        updateDoc(docRef, {...post, id: docRef.id})
         .then(() => console.log("updated"))
         .catch(e => console.log(e))
     }
