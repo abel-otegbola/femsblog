@@ -22,7 +22,7 @@ const AllPost = () => {
         <div className="">
             <Header text={"All Posts"} />
 
-            <div className="p-[1] bg-gray-100 w-full overflow-x-hidden">
+            <div className="p-[1] bg-gray-100 w-full overflow-x-auto">
                 <div className="bg-white flex">
                     
                 </div>

@@ -1,15 +1,19 @@
-import { createContext, useEffect } from "react";
-import { useLocalStorage } from "../customHooks/useLocalStorage";
+import { createContext, useEffect, useState } from "react";
 import { getAllPosts } from "../firebase/firebase";
 
 export const BlogsContext = createContext()
 
 const BlogsContextProvider = ({ children }) => {
-    const [blogs, setBlogs] = useLocalStorage("blogs", []);
+    const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        getAllPosts().then(result => setBlogs(result))
-    })
+        const fetchData = async () => {
+            await getAllPosts()
+            .then(result => setBlogs(result))
+        }
+        fetchData()
+        .catch(console.error)
+    }, [])
 
     return (
         <BlogsContext.Provider value={{blogs,setBlogs}}>

@@ -76,14 +76,14 @@ export const logOut = async() => {
 
 export const getAllPosts = async () =>  {
     try {
-        let postsArray = [];
-        const querySnapshot = await getDocs(collection(db, "posts"));
+            let postsArray = [];
+        const querySnapshot = await getDocs(collection(db, "posts"))
+            querySnapshot.forEach((doc) => {
+                let eachPost = doc.data()
+                postsArray.push({ ...eachPost, id: doc.id });
+            })
+            return (postsArray);
         
-        querySnapshot.forEach((doc) => {
-            let eachPost = doc.data()
-            postsArray.push({ ...eachPost, id: doc.id });
-        })
-        return postsArray;
     }
     catch(error) {
         console.log(error)
