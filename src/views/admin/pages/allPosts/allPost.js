@@ -44,7 +44,7 @@ const AllPost = () => {
                                         <p>{blog.author}</p>
                                     </a>
                                     <div className="flex w-[10%]">
-                                        <button className="mx-2">Edit</button>
+                                        <a href={`/admin/edit-post/${blog.id}`} className="mx-2">Edit</a>
                                         <button className="ml-4 text-red-400" onClick={() => handleDeletePost(blog.id)}><FaTrashAlt /></button>
                                     </div>
                                 </div>

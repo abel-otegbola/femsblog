@@ -16,18 +16,20 @@ const NewPost = () => {
         content: [],
         imgUrl: {title: "", url: `https://picsum.photos/id/${2}/1000/500`}
     })
-    const [status, setStatus] = useState("Publish")
+    const [status, setStatus] = useState("Publish");
+    const [publishedId, setPublishedId] = useState("")
 
     const publish = () => {
         if(status === "Publish") {
             setStatus("Loading...")
             addNewPost(blog)
-            setStatus("Published")
+            .then(result => {
+                setPublishedId(result)
+                setStatus("Published")
+            })
         }
         else if(status === "Published") {
-            setStatus("Loading...")
-            updatePost(blog)
-            setStatus("Published")
+            updatePost(publishedId, blog)
         }
     }
 

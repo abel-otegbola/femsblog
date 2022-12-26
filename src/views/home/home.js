@@ -1,5 +1,5 @@
 import HeroSection from "../../components/home/heroSection/heroSection";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { BlogsContext } from "../../context/blogsContext";
 import HeroBlog from "../../components/home/heroBlog/heroBlog";
 import WidgetPanel from "../../components/widgets/widgetsPanel/widgetsPanel";
@@ -7,10 +7,6 @@ import SideBarPanel from "../../components/sideBar/sideBarPanel/sideBarPanel";
 
 const Home = () => {
     const {blogs} = useContext(BlogsContext)
-
-    useEffect(() => {
-        console.log(blogs)
-    }, [blogs])
 
     return(
         <main className="font-display">
