@@ -19,7 +19,7 @@ const Home = () => {
 
                 <div className="flex-1">
                     {
-                        blogs.map(blog => {
+                        blogs && blogs.map(blog => {
                             return (
                                 <HeroBlog key={blog.id} blog={blog} />
                             )

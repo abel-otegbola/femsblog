@@ -12,7 +12,6 @@ const SideBarPanel = ({ blogs }) => {
                 setCategories([...categories, blog.category])
             }
         })
-        console.log(categories)
     }, [blogs, categories])
 
     useEffect(() => {

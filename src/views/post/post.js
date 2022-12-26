@@ -4,7 +4,9 @@ import CommentSection from "../../components/comments/commentsSection";
 import RelatedPosts from "../../components/relatedPost/relatedPost";
 import { BlogsContext } from "../../context/blogsContext";
 import { formatDate } from "../../utils/helpers/formatDate";
-import styles from "./post.module.css"
+import styles from "./post.module.css";
+import DOMPurify from 'dompurify';
+import { Helmet } from "react-helmet";
 
 const Post = () => {
     const [post, setPost] = useState([])
@@ -17,6 +19,11 @@ const Post = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>{post && post.title}</title>
+                <meta name="description" content={post && post.summary} />
+                <meta name="robots" content="index, follow" />
+            </Helmet>
             {
                post && 
                <div className="px-[3%] py-[30px]">
@@ -40,7 +47,7 @@ const Post = () => {
                     <img src={post.imgUrl} alt={post.title} className="md:w-[75%] w-full my-4 mx-auto" />
 
                     <div className={`md:w-[75%] w-full mx-auto ${styles.post}`}>
-                        <div className="leading-8 text-justify my-4 first-letter:text-5xl" dangerouslySetInnerHTML={{ __html: post.content}} />
+                        <div className="leading-8 text-justify my-4 first-letter:text-5xl" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content)}} />
                     </div>
 
                     <div>

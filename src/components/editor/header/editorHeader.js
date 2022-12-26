@@ -1,5 +1,5 @@
 
-const EditorHeader = ({ handlePublish }) => {
+const EditorHeader = ({ handlePublish, status }) => {
     return (
         <div className="flex bg-fuchsia-600 text-white items-center px-[3%] py-1 justify-between">
 
@@ -11,7 +11,7 @@ const EditorHeader = ({ handlePublish }) => {
             </ul>
 
 
-            <button className="bg-gray-600 text-white px-5 py-2 hover:bg-gray-800" onClick={() => handlePublish()}>Publish</button>
+            <button className="bg-gray-600 text-white px-5 py-2 hover:bg-gray-800" onClick={() => handlePublish()}>{status}</button>
         </div>
     )
 }

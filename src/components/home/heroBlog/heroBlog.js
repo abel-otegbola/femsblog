@@ -1,5 +1,5 @@
-import { FiHeart, FiUser } from "react-icons/fi";
-import { FaHeart } from "react-icons/fa";
+import { FiBookmark, FiUser } from "react-icons/fi";
+import { FaBookmark } from "react-icons/fa";
 import { formatDate } from "../../../utils/helpers/formatDate"
 
 
@@ -8,8 +8,8 @@ const HeroBlog = ({ blog }) => {
     return (
         <a href={`/post/${blog.slug}`} className="md:mx-2 md:mb-2 mb-2 sm:mb-2 p-2 sm:flex block bg-white rounded relative">
             {
-                blog.liked ? <FaHeart  className="absolute right-5 top-5 text-red-500"/>
-                :  <FiHeart  className="absolute right-5 top-5"/>
+                blog.liked ? <FaBookmark  className="absolute right-5 top-5 text-red-500"/>
+                :  <FiBookmark  className="absolute right-5 top-5"/>
             }
             <img src={blog.imgUrl} className="rounded sm:h-auto h-auto sm:w-[40%] w-[100%] object-cover" alt="blog" />
             <div className="py-3 px-3 sm:w-[60%] w-[100%]">

@@ -6,7 +6,8 @@ import {
     signInWithEmailAndPassword,
     signOut,
 } from "firebase/auth";
-import { getFirestore, addDoc, getDocs, collection } from "firebase/firestore";
+import { getFirestore, addDoc, getDocs, collection, deleteDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 // My web app's Firebase configuration
 const firebaseConfig = {
@@ -25,6 +26,7 @@ const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 const db = getFirestore();
 const auth = getAuth(app);
+const storage = getStorage(app);
 
 export const signUp = async (email, password) => {
     try {
@@ -72,14 +74,22 @@ export const logOut = async() => {
 };
 
 
-export const getAllBlogs = async () =>  {
-    const querySnapshot = await getDocs(collection(db, "posts"));
+export const getAllPosts = async () =>  {
+    try {
+        let postsArray = [];
+        const querySnapshot = await getDocs(collection(db, "posts"));
+        
         querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-    })
+            postsArray.push(doc.data());
+        })
+        return postsArray;
+    }
+    catch(error) {
+        console.log(error)
+    }
 }
 
-export const addNewBlog = async (post) => {
+export const addNewPost = async (post) => {
     try {
         const docRef = await addDoc(collection(db, "posts"), post);
     
@@ -87,4 +97,26 @@ export const addNewBlog = async (post) => {
     } catch (e) {
         console.error("Error adding post: ", e);
     }
+}
+
+export const updatePost = (id, post) => { 
+    db.collection("post").doc(id).update(post); 
+}; 
+
+export const deletePost = async (id) => { 
+    try {
+        const docRef = await deleteDoc(collection(db, "posts"), id)
+        .then(() => console.log("post deleted successfully deleted", docRef.id))
+    }
+    catch(e) {
+        console.log(e)
+    }
+}; 
+
+const storageRef = ref(storage, 'images');
+
+export const uploadImage = (file) => {
+    uploadBytes(storageRef, file).then((snapshot) => {
+        console.log('Uploaded a blob or file!');
+    });
 }

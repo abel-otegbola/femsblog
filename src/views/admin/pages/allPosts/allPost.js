@@ -3,6 +3,7 @@ import Header from "../../../../components/editor/header/header";
 import { BlogsContext } from "../../../../context/blogsContext";
 import { formatDate } from "../../../../utils/helpers/formatDate";
 import { FaTrashAlt } from "react-icons/fa"
+import { deletePost } from '../../../../firebase/firebase';
 
 const AllPost = () => {
     const [allBlogs, setAllBlogs] = useState([])
@@ -11,6 +12,11 @@ const AllPost = () => {
     useEffect(() => {
         setAllBlogs(blogs)
     }, [setAllBlogs, blogs])
+
+    const handleDeletePost = (id) => {
+        deletePost(id)
+        // window.location.reload()
+    }
 
     return (
         <div className="">
@@ -39,7 +45,7 @@ const AllPost = () => {
                                     </a>
                                     <div className="flex w-[10%]">
                                         <button className="mx-2">Edit</button>
-                                        <button className="ml-4"><FaTrashAlt /></button>
+                                        <button className="ml-4 text-red-400" onClick={() => handleDeletePost(blog)}><FaTrashAlt /></button>
                                     </div>
                                 </div>
                             )

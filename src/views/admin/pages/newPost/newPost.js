@@ -2,7 +2,7 @@ import Box from "../../../../components/editor/box/box";
 import EditorHeader from "../../../../components/editor/header/editorHeader";
 import uuid from "react-uuid"
 import { useState } from "react";
-import { addNewBlog } from "../../../../firebase/firebase";
+import { addNewPost, updatePost } from "../../../../firebase/firebase";
 
 const NewPost = () => {
     const [blog, setBlog] = useState({
@@ -18,14 +18,24 @@ const NewPost = () => {
         content: [],
         imgUrl: `https://picsum.photos/id/${2}/1000/500`
     })
+    const [status, setStatus] = useState("Publish")
 
     const publish = () => {
-        addNewBlog(blog)
+        if(status === "Publish") {
+            setStatus("Loading...")
+            addNewPost(blog)
+            setStatus("Published")
+        }
+        else if(status === "Published") {
+            setStatus("Loading...")
+            updatePost(blog)
+            setStatus("Published")
+        }
     }
 
     return (
         <div className="">
-            <EditorHeader handlePublish={publish} />
+            <EditorHeader handlePublish={publish} status={status} />
 
             <div className="flex items-stretch">
                 <Box blog={blog} setBlog={setBlog} />
