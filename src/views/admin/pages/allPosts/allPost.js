@@ -27,7 +27,7 @@ const AllPost = () => {
                     
                 </div>
 
-                <div className="p-2">
+                <div className="p-2 min-w-[900px] overflow-x-auto">
                     {
                         allBlogs.map(blog => {
                             return (
@@ -45,7 +45,7 @@ const AllPost = () => {
                                     </a>
                                     <div className="flex w-[10%]">
                                         <button className="mx-2">Edit</button>
-                                        <button className="ml-4 text-red-400" onClick={() => handleDeletePost(blog)}><FaTrashAlt /></button>
+                                        <button className="ml-4 text-red-400" onClick={() => handleDeletePost(blog.id)}><FaTrashAlt /></button>
                                     </div>
                                 </div>
                             )

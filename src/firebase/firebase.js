@@ -6,7 +6,7 @@ import {
     signInWithEmailAndPassword,
     signOut,
 } from "firebase/auth";
-import { getFirestore, addDoc, getDocs, collection, deleteDoc } from "firebase/firestore";
+import { getFirestore, addDoc, getDocs, collection, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 // My web app's Firebase configuration
@@ -100,23 +100,35 @@ export const addNewPost = async (post) => {
 }
 
 export const updatePost = (id, post) => { 
-    db.collection("post").doc(id).update(post); 
-}; 
-
-export const deletePost = async (id) => { 
     try {
-        const docRef = await deleteDoc(collection(db, "posts"), id)
-        .then(() => console.log("post deleted successfully deleted", docRef.id))
+        const docRef = doc(db, "posts", id);
+
+        updateDoc(docRef, post)
+        .then(() => console.log("updated"))
+        .catch(e => console.log(e))
     }
     catch(e) {
         console.log(e)
     }
 }; 
 
-const storageRef = ref(storage, 'images');
+export const deletePost = (id) => { 
+    try {
+        const docRef = doc(db, "posts", id);
 
-export const uploadImage = (file) => {
+        deleteDoc(docRef)
+        .then(() => console.log("deleted"))
+        .catch(e => console.log(e))
+    }
+    catch(e) {
+        console.log(e)
+    }
+}; 
+
+
+export const uploadImage = (file, name) => {
+    const storageRef = ref(storage, name);
     uploadBytes(storageRef, file).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
+        console.log(snapshot);
     });
 }
