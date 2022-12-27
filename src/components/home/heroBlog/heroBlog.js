@@ -13,7 +13,7 @@ const HeroBlog = ({ blog }) => {
             }
             <img src={blog.imgUrl.url} className="rounded sm:h-auto h-auto sm:w-[40%] w-[100%] object-cover" alt={blog.imgUrl.title} />
             <div className="py-3 px-3 sm:w-[60%] w-[100%]">
-                <a href={`/categories/${blog.category}`} className={`py-2 rounded text-gray-500 text-sm font-semibold uppercase hover:text-fuchsia-500`}>{blog.category}</a>
+                <a href={`/categories/${blog.category}`} className={`py-2 rounded text-gray-500 text-xs font-semibold uppercase hover:text-fuchsia-500`}>{blog.category}</a>
                 
                 <h1 className="font-heading text-xl font-bold my-3">{blog.title}</h1>
                 <p className="">
