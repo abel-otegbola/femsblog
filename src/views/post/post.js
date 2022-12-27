@@ -28,8 +28,8 @@ const Post = () => {
                post && 
                <div className="px-[3%] py-[30px]">
                 <a href={`/categories/${post.category && post.category}`} className="text-center flex w-full justify-center uppercase text-[14px] mb-3">{post.category}</a>
-                    <h1 className="text-center font-bold text-2xl">{post.title}</h1>
-                    <p className=" py-2 text-center">
+                    <h1 className="my-2 font-bold text-3xl">{post.title}</h1>
+                    <p className="py-2">
                         {
                             formatDate(post.createdAt || "2022-10-10 5:02").map((item, i) => { return (
                                 <span key={i} className="mr-1">{item}</span>
