@@ -7,7 +7,7 @@ const Box = ({ blog, setBlog }) => {
     const [image, setImage] = useState({name: "", blob: "", alt: ""})
 
     const handleTags = (e) => {
-        if(e.key === "Enter" || e.key === "," || e.keyCode === 13) {
+        if(e.key === "Enter" || e.key === "," || e.keyCode === 13 || e.keyCode === 66) {
             setBlog({ ...blog, tags: [...blog.tags, e.target.value.replace(",","")] })
             inputRef.current.value = "";
         }
@@ -97,7 +97,7 @@ const Box = ({ blog, setBlog }) => {
                         </div>
                     </div>
                     <h1 className="font-semibold p-1">Post Summary</h1>
-                    <textarea className="flex-1 border border-gray-200 w-full h-[100px] p-3 my-1 focus:outline-fuchsia-200" value={blog && blog.summary} onChange={(e) => handleSummary(e.target.value)}></textarea>
+                    <input className="flex-1 border border-gray-200 w-full h-[100px] p-3 my-1 focus:outline-fuchsia-200" value={blog && blog.summary} onChange={(e) => handleSummary(e.target.value)} />
                 </div>
             </div>
 
