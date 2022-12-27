@@ -38,7 +38,7 @@ const Post = () => {
                         <span className="ml-4 text-fuchsia-500">By {post.author}</span>
                     </p>
                     
-                    <p className="my-2 mb-4">
+                    <p className="my-2 mb-8">
                         {
                         post.tags && post.tags.map((tag, i) => {
                             return <a key={i} href={`/tags/${tag.replace(" ", "-")}`} className={`py-1 px-2 pb-2 mr-2 rounded bg-fuchsia-500/[.1] text-fuchsia-600 text-sm hover:bg-fuchsia-500 hover:text-white`}>{tag}</a>
