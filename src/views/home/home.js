@@ -4,6 +4,8 @@ import { BlogsContext } from "../../context/blogsContext";
 import HeroBlog from "../../components/home/heroBlog/heroBlog";
 import WidgetPanel from "../../components/widgets/widgetsPanel/widgetsPanel";
 import SideBarPanel from "../../components/sideBar/sideBarPanel/sideBarPanel";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css"
 
 const Home = () => {
     const {blogs} = useContext(BlogsContext)
@@ -19,11 +21,11 @@ const Home = () => {
 
                 <div className="flex-1">
                     {
-                        blogs && blogs.map(blog => {
+                        (blogs && blogs.map(blog => {
                             return (
                                 <HeroBlog key={blog.id} blog={blog} />
                             )
-                        })
+                        })) || <Skeleton />
                     }
                 </div>
 
