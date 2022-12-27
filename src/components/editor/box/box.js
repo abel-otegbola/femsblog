@@ -7,7 +7,7 @@ const Box = ({ blog, setBlog }) => {
     const [image, setImage] = useState({name: "", blob: "", alt: ""})
 
     const handleTags = (e) => {
-        if(e.key === "Enter" || e.key === "," || e.key === "Tab") {
+        if(e.key === "Enter" || e.key === "," || e.keyCode === 13) {
             setBlog({ ...blog, tags: [...blog.tags, e.target.value.replace(",","")] })
             inputRef.current.value = "";
         }
