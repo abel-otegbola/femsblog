@@ -26,7 +26,7 @@ const Post = () => {
             </Helmet>
             {
                post && 
-               <div className="md:w-[75%] px-[3%] py-[30px]">
+               <div className="md:w-[75%] m-auto px-[3%] py-[30px]">
                 <a href={`/categories/${post.category && post.category}`} className="flex uppercase text-[14px] mb-3">{post.category}</a>
                     <h1 className="my-3 font-bold text-4xl">{post.title}</h1>
                     <p className="py-2">
