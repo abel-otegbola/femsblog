@@ -14,7 +14,7 @@ const Box = ({ blog, setBlog }) => {
     }
 
     const handleTitle = (title) => {
-        setBlog({ ...blog, title, slug: title.replace(" ", "-") })
+        setBlog({ ...blog, title, slug: title.replaceAll(" ", "-") })
     }
 
     const handleCategory = (category) => {
@@ -53,20 +53,21 @@ const Box = ({ blog, setBlog }) => {
     }
 
     return (
+        <>
+        { blog && 
         <div className="flex-1 border border-slate-400 p-[3%]">
-            
             <div className="flex mb-4 flex-wrap">
                 <div className="sm:w-[50%] w-full my-2">
                     <h1 className="font-semibold p-1">Category<sup className="text-red-500">*</sup></h1>
-                    <input className="w-full mt-1 border border-gray-200 p-2 mb-5 focus:outline-fuchsia-200" placeholder={blog.category} onChange={(e) => handleCategory(e.target.value)}/>
+                    <input className="w-full mt-1 border border-gray-200 p-2 mb-5 focus:outline-fuchsia-200" value={blog && blog.category} onChange={(e) => handleCategory(e.target.value)}/>
 
                     <h1 className="font-semibold p-1">Title<sup className="text-red-500">*</sup></h1>
-                    <input className="w-full mt-1 border border-gray-200 p-2 mb-5 focus:outline-fuchsia-200" placeholder={blog.title} onChange={(e) => handleTitle(e.target.value)}/>
+                    <input className="w-full mt-1 border border-gray-200 p-2 mb-5 focus:outline-fuchsia-200" value={blog && blog.title} onChange={(e) => handleTitle(e.target.value)}/>
 
                     <h1 className="font-semibold p-1">Tags</h1>
-                    <p className={`w-full my-2 text-center flex p-1 border border-gray-200`}>
+                    <p className={`w-full my-2 text-center flex flex-wrap p-1 border border-gray-200`}>
                         {
-                        blog.tags && blog.tags.map((tag, i) => {
+                        blog && blog.tags.map((tag, i) => {
                             return <span key={i} className={`flex items-center w-auto py-1 px-3 mr-2 rounded bg-fuchsia-500/[.1] text-fuchsia-600 text-sm`}>{tag} <FaTimesCircle className="ml-2" onClick={() => deleteTag(tag)} /></span>
                         })
                         }
@@ -78,7 +79,7 @@ const Box = ({ blog, setBlog }) => {
                     <h1 className="font-semibold p-1">Post Thumbnail</h1>
                     <div className="bg-gray-100 rounded p-4 flex items-center my-2 justify-center text-center">
                         <div>
-                            <img src={image.blob} alt={image.alt} className={`max-h-[200px]`} />
+                            <img src={blog.imgUrl.url} alt={blog.imgUrl.title} className={`max-h-[200px]`} />
                             <p>{image.name}</p>
                             <p>Drag and drop image here</p>
                             <label>
@@ -96,7 +97,7 @@ const Box = ({ blog, setBlog }) => {
                         </div>
                     </div>
                     <h1 className="font-semibold p-1">Post Summary</h1>
-                    <textarea className="flex-1 border border-gray-200 w-full h-[100px] p-3 my-1 focus:outline-fuchsia-200" placeholder={blog.summary} onChange={(e) => handleSummary(e.target.value)}></textarea>
+                    <textarea className="flex-1 border border-gray-200 w-full h-[100px] p-3 my-1 focus:outline-fuchsia-200" value={blog && blog.summary} onChange={(e) => handleSummary(e.target.value)}></textarea>
                 </div>
             </div>
 
@@ -104,6 +105,7 @@ const Box = ({ blog, setBlog }) => {
             <h1 className="font-semibold p-1 mt-14 mb-1">Post Body</h1>
             <Block blog={blog} setBlog={setBlog} />
         </div>
+        }</>
     )
 }
 

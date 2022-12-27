@@ -9,7 +9,7 @@ const BlogsContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchData = async () => {
             await getAllPosts()
-            .then(result => setBlogs(result))
+            .then(result => {setBlogs(result); console.log(result)})
         }
         fetchData()
         .catch(console.error)

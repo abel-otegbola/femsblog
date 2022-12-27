@@ -6,18 +6,19 @@ import { addNewPost, updatePost } from "../../../../firebase/firebase";
 const NewPost = () => {
     const [blog, setBlog] = useState({
         author: "Shakesfem",
-        title: "Input post title here",
-        category: "Input post category",
+        title: "",
+        category: "",
         tags: [],
-        summary: "Type in the post summary here",
+        summary: "",
         slug: "",
         createdAt: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`,
         updatedAt: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`,
         content: [],
-        imgUrl: {title: "", url: `https://picsum.photos/id/${2}/1000/500`}
+        imgUrl: {title: "", url: ``}
     })
     const [status, setStatus] = useState("Publish");
-    const [publishedId, setPublishedId] = useState("")
+    const [publishedId, setPublishedId] = useState("");
+
 
     const publish = () => {
         if(status === "Publish") {
