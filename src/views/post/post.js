@@ -41,7 +41,7 @@ const Post = () => {
                     <p className="my-2 mb-8">
                         {
                         post.tags && post.tags.map((tag, i) => {
-                            return <a key={i} href={`/tags/${tag.replace(" ", "-")}`} className={`py-1 pb-2 mr-4 rounded uppercase text-sm hover:bg-fuchsia-500 hover:text-white`}>{tag}</a>
+                            return <a key={i} href={`/tags/${tag.replace(" ", "-")}`} className={`py-1 p-1 pb-2 mr-4 rounded uppercase text-xs bg-gray-100 hover:bg-fuchsia-500 hover:text-white`}>{tag}</a>
                         })
                     }</p>
                     <img src={post.imgUrl && post.imgUrl.url} alt={post.title} className="w-full my-4 mx-auto" />
