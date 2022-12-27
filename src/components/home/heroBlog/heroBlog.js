@@ -13,9 +13,9 @@ const HeroBlog = ({ blog }) => {
             }
             <img src={blog.imgUrl.url} className="rounded sm:h-auto h-auto sm:w-[40%] w-[100%] object-cover" alt={blog.imgUrl.title} />
             <div className="py-3 px-3 sm:w-[60%] w-[100%]">
-                <a href={`/categories/${blog.category}`} className={`py-2 rounded text-gray-500 uppercase hover:text-fuchsia-500`}>{blog.category}</a>
+                <a href={`/categories/${blog.category}`} className={`py-2 rounded text-gray-500 text-sm font-semibold uppercase hover:text-fuchsia-500`}>{blog.category}</a>
                 
-                <h1 className="font-heading text-2xl font-semibold my-4">{blog.title}</h1>
+                <h1 className="font-heading text-xl font-bold my-3">{blog.title}</h1>
                 <p className="">
                     <p className="text-gray-400 py-2">
                     {
@@ -25,10 +25,10 @@ const HeroBlog = ({ blog }) => {
                     }
                     </p>
                 </p>
-                <p className="text-lg text-gray-600">{blog.summary}</p>
+                <p className="text-lg text-gray-600 mb-3">{blog.summary}</p>
                 {
                     blog.tags.map((tag, i) => {
-                        return <a href={`/tags/${tag.replace(" ", "-")}`} key={i} className={`py-2 mr-4 rounded uppercase text-xs hover:bg-orange-500 hover:text-white`}>{tag}</a>
+                        return <a href={`/tags/${tag.replace(" ", "-")}`} key={i} className={`py-2 mr-4 rounded uppercase text-xs hover:bg-fuchsia-500 hover:text-white`}>{tag}</a>
                     })
                 }
                 <div className="flex items-center text-gray-400 text-md mr-10 mt-5"><FiUser className="p-1 rounded-full bg-gray-300 text-white text-2xl mr-2"/>{blog.author}</div>
