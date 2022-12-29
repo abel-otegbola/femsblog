@@ -1,10 +1,11 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect } from "react";
 import { getAllPosts } from "../firebase/firebase";
+import { useSessionStorage } from "../customHooks/useSessionStorage;
 
 export const BlogsContext = createContext()
 
 const BlogsContextProvider = ({ children }) => {
-    const [blogs, setBlogs] = useState([]);
+    const [blogs, setBlogs] = useSessionStorage("blogs", []);
 
     useEffect(() => {
         const fetchData = async () => {
