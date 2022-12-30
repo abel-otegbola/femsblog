@@ -11,19 +11,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css"
 
 const Post = () => {
-    const [post, setPost] = useState({
-        id: 1,
-        author: "",
-        title: "",
-        category: "",
-        tags: [""],
-        summary: "",
-        slug: "",
-        createdAt: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`,
-        updatedAt: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`,
-        content: [],
-        imgUrl: {title: "", url: ``}
-    })
+    const [post, setPost] = useState({})
     const {blogs} = useContext(BlogsContext)
     const { slug } = useParams();
 
