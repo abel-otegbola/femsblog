@@ -6,7 +6,7 @@ const Box = ({ blog, setBlog }) => {
     const inputRef = useRef()
 
     const handleTags = (e) => {
-        if(e.key === "Enter" || e.key === "," || e.keyCode === 13 || e.keyCode === 66) {
+        if(e.key === "Enter" || e.key === "," || e.keyCode === 188 || e.keyCode === 13 || e.keyCode === 66 || e.target.value.indexOf(",") !== -1) {
             setBlog({ ...blog, tags: [...blog.tags, e.target.value.replace(",","")] })
             inputRef.current.value = "";
         }
@@ -66,7 +66,7 @@ const Box = ({ blog, setBlog }) => {
                             return <span key={i} className={`flex items-center w-auto py-1 px-3 mr-2 rounded bg-fuchsia-500/[.1] text-fuchsia-600 text-sm`}>{tag} <FaTimesCircle className="ml-2" onClick={() => deleteTag(tag)} /></span>
                         })
                         }
-                        <input className={`w-28 py-1 px-2 pb-2 mr-2 rounded text-sm border-none focus:outline-none flex-1`} type="submit" ref={inputRef} placeholder="Add tags" onKeyDown={(e) => handleTags(e)} />
+                        <input className={`w-28 py-1 px-2 pb-2 mr-2 rounded text-sm border-none focus:outline-none flex-1`} ref={inputRef} placeholder="Add tags" onChange={(e) => handleTags(e)} />
                     </p>
                 </div>
             
