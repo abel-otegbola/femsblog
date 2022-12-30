@@ -1,10 +1,9 @@
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import { FaTimesCircle } from "react-icons/fa"
 import Block from "../block/block"
 
 const Box = ({ blog, setBlog }) => {
     const inputRef = useRef()
-    const [image, setImage] = useState({name: "", blob: "", alt: ""})
 
     const handleTags = (e) => {
         if(e.key === "Enter" || e.key === "," || e.keyCode === 13 || e.keyCode === 66) {
@@ -40,16 +39,12 @@ const Box = ({ blog, setBlog }) => {
     const handleThumbnail = (file) => {        
         filetoDataUri(file)
         .then(dataUri => {
-            setImage({
-                blob: dataUri,
-                name: file.name,
-                alt: file.name
-            })
+            setBlog({ ...blog, imgUrl: { title: file.name, url: dataUri } })
         })
     }
 
-    const saveThumbnail = () => {
-        setBlog({ ...blog, imgUrl: { title: image.name, url: image.blob } })
+    const removeThumbnail = () => {  
+        setBlog({ ...blog, imgUrl: { title: "", url: "" } })
     }
 
     return (
@@ -80,17 +75,16 @@ const Box = ({ blog, setBlog }) => {
                     <div className="bg-gray-100 rounded p-4 flex items-center my-2 justify-center text-center">
                         <div>
                             <img src={blog.imgUrl.url} alt={blog.imgUrl.title} className={`max-h-[200px]`} />
-                            <p>{image.name}</p>
+                            <p>{blog.imgUrl.title}</p>
                             <p>Drag and drop image here</p>
                             <label>
                                 <p className="my-2">or <span className="text-fuchsia-600">Browse</span></p>
                                 <input className="bg-gray-50 hidden" type="file" onChange={(e) => handleThumbnail(e.target.files[0])} />
                             </label>
                             {
-                                image.blob !== "" ?
-                                    <div className="flex gap-2 justify-center">
-                                        <button className="p-2 px-3 rounded bg-fuchsia-600 text-white text-[10px]" onClick={() => saveThumbnail()}>Upload</button>
-                                        <button className="p-2 px-3 rounded bg-red-600 text-white text-[10px]" onClick={() => setImage({name: "", blob: "", alt: ""})}>Delete</button>
+                                blog.imgUrl.url !== "" ?
+                                    <div className="flex my-2 gap-2 justify-center">
+                                        <button className="p-2 px-3 rounded bg-red-600 text-white text-[10px]" onClick={() => removeThumbnail()}>Delete</button>
                                     </div>
                                 : ""
                             }
