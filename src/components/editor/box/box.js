@@ -71,7 +71,7 @@ const Box = ({ blog, setBlog }) => {
                             return <span key={i} className={`flex items-center w-auto py-1 px-3 mr-2 rounded bg-fuchsia-500/[.1] text-fuchsia-600 text-sm`}>{tag} <FaTimesCircle className="ml-2" onClick={() => deleteTag(tag)} /></span>
                         })
                         }
-                        <textarea className={`w-28 py-1 px-2 pb-2 mr-2 rounded text-sm border-none focus:outline-none flex-1`} ref={inputRef} placeholder="Add tags" onKeyDown={(e) => handleTags(e)}></textarea>
+                        <input className={`w-28 py-1 px-2 pb-2 mr-2 rounded text-sm border-none focus:outline-none flex-1`} ref={inputRef} placeholder="Add tags" onKeyDown={(e) => handleTags(e)} />
                     </p>
                 </div>
             
@@ -97,7 +97,7 @@ const Box = ({ blog, setBlog }) => {
                         </div>
                     </div>
                     <h1 className="font-semibold p-1">Post Summary</h1>
-                    <input className="flex-1 border border-gray-200 w-full h-[100px] p-3 my-1 focus:outline-fuchsia-200" value={blog && blog.summary} onChange={(e) => handleSummary(e.target.value)} />
+                    <textarea className="flex-1 border border-gray-200 w-full h-[100px] p-3 my-1 focus:outline-fuchsia-200" value={blog && blog.summary} onChange={(e) => handleSummary(e.target.value)}></textarea>
                 </div>
             </div>
 
