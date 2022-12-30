@@ -19,6 +19,8 @@ import Signup from "./views/signup/signup";
 import { AuthProvider } from "./customHooks/useAuth";
 
 function App() {
+  
+
   return (
     <BlogsContextProvider>
     <CommentsContextProvider>

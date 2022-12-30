@@ -7,17 +7,18 @@ export const BlogsContext = createContext()
 const BlogsContextProvider = ({ children }) => {
     const [blogs, setBlogs] = useSessionStorage("blogs", []);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            await getAllPosts()
-            .then(result => {setBlogs(result); console.log(result)})
-        }
-        fetchData()
+    const fetchData = async () => {
+        await getAllPosts()
+        .then(result => {setBlogs(result)})
         .catch(console.error)
-    }, [])
+    }
+
+    useEffect(() => {
+        fetchData()
+    })
 
     return (
-        <BlogsContext.Provider value={{blogs,setBlogs}}>
+        <BlogsContext.Provider value={{blogs, setBlogs}}>
             { children }
         </BlogsContext.Provider>
     )

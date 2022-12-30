@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import LeftPane from "../../components/editor/leftPane/leftPane";
 import AuthContext from "../../context/authContext";
@@ -14,6 +14,10 @@ const Admin = () => {
     const handleLogout = async () => {
         await logOut()
     };
+
+    useEffect(() => {
+        console.log(user.email)
+    })
 
     if (!user) {
         return <Navigate replace to="/login" />;

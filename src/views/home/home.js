@@ -10,6 +10,7 @@ import "react-loading-skeleton/dist/skeleton.css"
 const Home = () => {
     const {blogs} = useContext(BlogsContext)
 
+
     return(
         <main className="font-display">
             <HeroSection text={"SHAKESFEM XPACE"} />

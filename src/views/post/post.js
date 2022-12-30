@@ -11,7 +11,18 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css"
 
 const Post = () => {
-    const [post, setPost] = useState({})
+    const [post, setPost] = useState({
+        author: "Shakesfem",
+        title: "",
+        category: "",
+        tags: [],
+        summary: "",
+        slug: "",
+        createdAt: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`,
+        updatedAt: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`,
+        content: [],
+        imgUrl: {title: "", url: ``}
+    })
     const {blogs} = useContext(BlogsContext)
     const { slug } = useParams();
 
@@ -31,19 +42,19 @@ const Post = () => {
                 <a href={`/categories/${post && post.category}`} className="uppercase text-[14px] mb-3">{(post && post.category) || <Skeleton />}</a>
                     <h1 className="my-3 font-bold text-4xl">{(post && post.title) || <Skeleton />}</h1>
                     <p className="py-2">
-                        {
-                            (formatDate((post && post.createdAt) || "2022-10-10 5:02").map((item, i) => { return (
+                        { post ?
+                            (formatDate((post.createdAt) || "2022-10-10 5:02").map((item, i) => { return (
                                 <span key={i} className="mr-1">{item}</span>
-                            ) })) || <Skeleton count={3} />
+                            ) })) : <Skeleton count={3} />
                         }
                         <span className="ml-4 text-fuchsia-500">By {(post && post.author) ||  <Skeleton />}</span>
                     </p>
                     
                     <p className="my-2 mb-8">
-                        {
-                        (post && post.tags.map((tag, i) => {
+                        { post ?
+                        ( post.tags.map((tag, i) => {
                             return <a key={i} href={`/tags/${tag.replace(" ", "-")}`} className={`py-1 p-1 px-2 pb-2 mr-4 rounded bg-gray-100 text-gray-600 text-xs uppercase hover:bg-fuchsia-500 hover:text-white`}>{tag}</a>
-                        })) || <Skeleton count={3} />
+                        })) : <Skeleton count={3} />
                     }</p>
                     {<img src={post && post.imgUrl.url} alt={post && post.title} className="w-full my-4 mx-auto" /> || <Skeleton height={600} />}
 
