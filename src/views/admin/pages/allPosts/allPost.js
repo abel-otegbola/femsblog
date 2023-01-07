@@ -3,7 +3,7 @@ import Header from "../../../../components/editor/header/header";
 import { BlogsContext } from "../../../../context/blogsContext";
 import { formatDate } from "../../../../utils/helpers/formatDate";
 import { FaTrashAlt } from "react-icons/fa"
-import { deletePost } from '../../../../firebase/firebase';
+import { deletePost } from '../../../../firebase/postsActions';
 
 const AllPost = () => {
     const [allBlogs, setAllBlogs] = useState([])

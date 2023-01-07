@@ -4,7 +4,7 @@ import HeroSection from "../../components/home/heroSection/heroSection";
 import { BlogsContext } from "../../context/blogsContext";
 import { formatDate } from "../../utils/helpers/formatDate";
 
-const Saved = () => {
+const Bookmarks = () => {
     const {blogs} = useContext(BlogsContext)
 
 
@@ -46,4 +46,4 @@ const Saved = () => {
     )
 }
 
-export default Saved;
+export default Bookmarks;

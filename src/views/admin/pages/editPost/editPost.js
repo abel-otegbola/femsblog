@@ -1,7 +1,7 @@
 import Box from "../../../../components/editor/box/box";
 import EditorHeader from "../../../../components/editor/header/editorHeader";
 import { useContext, useEffect, useState } from "react";
-import { updatePost } from "../../../../firebase/firebase";
+import { updatePost } from "../../../../firebase/postsActions";
 import { BlogsContext } from "../../../../context/blogsContext";
 import { useParams } from "react-router-dom";
 

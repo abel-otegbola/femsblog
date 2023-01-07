@@ -1,7 +1,7 @@
 import Box from "../../../../components/editor/box/box";
 import EditorHeader from "../../../../components/editor/header/editorHeader";
 import { useState } from "react";
-import { addNewPost, updatePost } from "../../../../firebase/firebase";
+import { addNewPost, updatePost } from "../../../../firebase/postsActions";
 
 const NewPost = () => {
     const [blog, setBlog] = useState({
