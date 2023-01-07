@@ -1,10 +1,21 @@
 import { useContext } from "react";
 import { CommentsContext } from "../../context/commentsContext";
+import { getAllComments } from "../../firebase/commentsActions";
 import CommentForm from "./commentForm";
 import SingleComment from "./singleComment";
 
 const CommentSection = ({ id }) => {
-    const { comments } = useContext(CommentsContext);
+    const { comments, setComments } = useContext(CommentsContext);
+
+    const fetchComments = async () => {
+        await getAllComments()
+        .then(result => {setComments(result)})
+        .catch(console.error)
+    }
+
+    window.addEventListener("load", () => {
+        fetchComments()
+    })
 
     return (
         <div className="py-4 w-full m-auto">

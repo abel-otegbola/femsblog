@@ -1,4 +1,4 @@
-import { createContext, useEffect } from "react";
+import { createContext } from "react";
 import { useSessionStorage } from "../customHooks/useSessionStorage";
 import { getAllPosts } from "../firebase/postsActions";
 
@@ -13,9 +13,9 @@ const BlogsContextProvider = ({ children }) => {
         .catch(console.error)
     }
 
-    useEffect(() => {
+   window.addEventListener("load", () => {
         fetchPosts()
-    })
+   })
 
     return (
         <BlogsContext.Provider value={{blogs, setBlogs}}>

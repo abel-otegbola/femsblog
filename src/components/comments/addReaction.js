@@ -4,7 +4,7 @@ import { FiThumbsDown, FiThumbsUp } from "react-icons/fi";
 import CommentForm from "./commentForm";
 import { CommentsContext } from "../../context/commentsContext";
 
-const AddReaction = ({ reaction, id, post_id }) => {
+const AddReaction = ({ reaction, name, id, post_id }) => {
     const [isOpen, setOpen] = useState(false)
     const [reply, setReply] = useState(false)
     const { comments, setComments } = useContext(CommentsContext);
@@ -40,7 +40,7 @@ const AddReaction = ({ reaction, id, post_id }) => {
                 <FaAngry className={`text-red-800 bg-white shadow-lg text-lg rounded-full p-[2px]`} onClick={() => addReaction("angry")} />
             </div>
             <p className="px-2 py-1 bg-white mt-1 text-gray-600 hover:bg-fuchsia-600 hover:text-white text-[10px] cursor-pointer rounded" onClick={() => setReply(!reply)}>Reply</p>
-            <div className={`${reply ? "absolute" : "hidden"} w-[200px] bottom-[100%] z-50`}>
+            <div className={`${reply ? "absolute" : "hidden"} w-[230px] bottom-[100%] ${name === "Shakefem" ? "left-0" : "right-0"} z-50`}>
                 <CommentForm post_id={post_id} comment_id={id} setReply={setReply}/>
             </div>
         </div>

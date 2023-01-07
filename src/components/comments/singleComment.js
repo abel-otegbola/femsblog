@@ -24,7 +24,7 @@ const SingleComment = ({ comment, post_id }) => {
                     <p className="my-2">{comment.content}</p>
                 </div>
             </div>
-            <AddReaction reaction={comment.reaction} id={comment.id} post_id={post_id}/>
+            <AddReaction reaction={comment.reaction} id={comment.id} name={comment.name} post_id={post_id}/>
         </div>
     )
 }
