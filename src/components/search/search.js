@@ -14,7 +14,7 @@ const Search = () => {
         className={`${
           isOpen ? "w-[200px] opacity-100" : "w-0 opacity-0"
         } md:w-auto md:opacity-100 flex-1 border-none py-1 px-3 outline-none transition-all duration-500`}
-        placeholder="Search blogs..."
+        placeholder="Search posts..."
       />
       <button
         className={`${

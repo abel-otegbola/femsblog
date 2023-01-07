@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { FaBars, FaChevronDown, FaTimes } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import AuthContext from "../../context/authContext";
 import { BlogsContext } from "../../context/blogsContext";
 import Search from "../search/search";
 
@@ -10,6 +11,7 @@ const Topbar = () => {
   const [catToggle, setCatToggle] = useState(false);
   const [categories, setCategories] = useState([])
   const { blogs } = useContext(BlogsContext)
+  const { user } = useContext(AuthContext)
 
   
   useEffect(() => {
@@ -49,6 +51,12 @@ const Topbar = () => {
         } md:overflow-visible overflow-hidden h-screen shadow-lg top-0 right-0 bg-white z-10 transition-all duration-700`}
       >
         <ul className="md:flex items-center text-gray-800 font-semibold md:w-auto w-full">
+          {
+            (!user) ? "" :
+            <li className="md:p-2 p-[18px] flex md:auto w-full border border-gray-50 border-b-gray-200 md:border-none">
+              <a href="/dashboard" className="hover:text-fuchsia-500">Dashboard</a>
+            </li> 
+          }
           {["", "Categories", "Bookmarks"].map((link, index) => {
             return (
               <li key={index} className="md:p-0 p-[18px] flex md:auto w-full border border-gray-50 border-b-gray-200 md:border-none">
