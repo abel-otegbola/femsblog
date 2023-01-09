@@ -35,13 +35,11 @@ export const addNewComment = async (comment) => {
     }
 }
 
-export const updateComment = (id, post) => { 
+export const updateComment = (id, comment) => { 
     try {
         const docRef = doc(db, "comments", id);
 
-        updateDoc(docRef, {...post, id: docRef.id})
-        .then(() => console.log("updated"))
-        .catch(e => console.log(e))
+        updateDoc(docRef, {...comment, id: docRef.id})
     }
     catch(e) {
         console.log(e)

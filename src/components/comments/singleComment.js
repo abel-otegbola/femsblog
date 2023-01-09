@@ -3,7 +3,7 @@ import { CommentsContext } from "../../context/commentsContext";
 import { formatDate } from "../../utils/helpers/formatDate";
 import AddReaction from "./addReaction";
 
-const SingleComment = ({ comment, post_id }) => {
+const SingleComment = ({ comment }) => {
     const { comments } = useContext(CommentsContext);
 
     return (
@@ -24,7 +24,7 @@ const SingleComment = ({ comment, post_id }) => {
                     <p className="my-2">{comment.content}</p>
                 </div>
             </div>
-            <AddReaction reaction={comment.reaction} id={comment.id} name={comment.name} post_id={post_id}/>
+            <AddReaction comment={comment}/>
         </div>
     )
 }

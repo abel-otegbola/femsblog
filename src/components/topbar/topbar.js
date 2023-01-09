@@ -53,7 +53,7 @@ const Topbar = () => {
         <ul className="md:flex items-center text-gray-800 font-semibold md:w-auto w-full">
           {
             (!user) ? "" :
-            <li className="md:p-2 p-[18px] flex md:auto w-full border border-gray-50 border-b-gray-200 md:border-none">
+            <li className="p-2 px-5 p-[18px] flex md:auto w-full border border-gray-50 border-b-gray-200 md:border-none">
               <a href="/dashboard" className="hover:text-fuchsia-500">Dashboard</a>
             </li> 
           }
