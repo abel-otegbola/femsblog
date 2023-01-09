@@ -26,7 +26,7 @@ const CommentForm = ({ post_id, comment_id, setReply }) => {
             email,
             name,
             reaction: "",
-            commented_on: `${new Date().getDate()}-${new Date().getMonth()}-${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes()}`,
+            commented_on: `${new Date().getDate()}-${new Date().getMonth() +1}-${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes()}`,
             replied_to: comment_id || null
         })
         .then(result => setComments(result))

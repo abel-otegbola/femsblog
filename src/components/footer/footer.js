@@ -1,9 +1,18 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaFacebook, FaInstagram, FaTelegramPlane, FaTwitter } from "react-icons/fa";
 import { BlogsContext } from "../../context/blogsContext";
 
 const Footer = () => {
     const { blogs } = useContext(BlogsContext)
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        blogs.forEach((blog) => {
+            if(categories.indexOf(blog.category) < 0) {
+                setCategories([...categories, blog.category])
+            }
+        })
+    }, [blogs, categories])
 
     return (
         <div className="footer p-[3%] bg-gray-800 text-white">
@@ -19,10 +28,12 @@ const Footer = () => {
                 <div className="md:w-[25%] w-full pt-8">
                     <h2 className="font-semibold pb-3">CATEGORIES</h2>
                     <ul>
-                        <li className="py-1 flex"><a className="py-1 w-full" href="/categories/Entertainment">Entertainment</a></li>
-                        <li className="py-1 flex"><a className="py-1 w-full" href="/categories/Music">Music</a></li>
-                        <li className="py-1 flex"><a className="py-1 w-full" href="/categories/Philosophy">Philosophy</a></li>
-                        <button className="py-2 text-fuchsia-600">view more</button>
+                        {
+                            categories.slice(0,4).map((category, i) => { return (
+                                <li className="py-1 flex" key={i}><a className="py-1 w-full" href={`/categories/${category}`}>{category}</a></li>
+                            )})
+                        }
+                        <a className="py-2 text-fuchsia-600" href="/categories">view more</a>
                     </ul>
                 </div>
 
@@ -30,13 +41,13 @@ const Footer = () => {
                     <h2 className="font-semibold pb-3">POSTS</h2>
                     <ul>
                         {
-                            blogs.slice(3).map(blog => {
+                            blogs.slice(0,3).map(blog => {
                                 return (
                                     <li className="py-1 flex" key={blog.id}><a className="py-1 w-full" href="/post/How-to-code-using-javascript">{blog.title}</a></li>
                                 )
                             })
                         }
-                        <button className="py-2 text-fuchsia-600">view more</button>
+                        <a className="py-2 text-fuchsia-600" href="/categories">view more</a>
                     </ul>
                 </div>
                 <div className="md:w-[10%] w-full pt-8">
